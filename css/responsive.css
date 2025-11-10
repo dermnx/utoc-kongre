@@ -1,0 +1,538 @@
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .mainmenu ul li a {
+        padding: 32px 12px;
+    }
+
+    .logo a {
+        padding: 12px 0;
+    }
+
+    .stick .logo a {
+        padding: 8px 0;
+    }
+
+    .fz-30 {
+        font-size: 24px;
+    }
+
+    .fz-40 {
+        font-size: 36px;
+    }
+
+    .hero-title {
+        font-size: 38px;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-countdown__timer .cdown {
+        min-width: 82px;
+        padding: 16px 18px;
+    }
+
+    .welcome-area .w-50 {
+        width: 60%;
+    }
+
+    .welcome-area {
+        height: 750px;
+    }
+
+    .schedule-content::after {
+        left: -60px;
+    }
+
+    .schedule-time {
+        left: -32%;
+    }
+
+    .price-area {
+        background-position: center center !important;
+    }
+
+    .tag-menu ul li a {
+        padding: 5px 10px;
+    }
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .bg-1,
+    .bg-2,
+    .bg-3,
+    .bg-4 {
+        background-repeat: repeat;
+    }
+
+    .sm-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .sm-mb-50 {
+        margin-bottom: 50px;
+    }
+
+    .logo a {
+        padding: 21px 0;
+    }
+
+    .stick .logo a {
+        padding: 16px 0;
+    }
+
+    .mainmenu ul li a {
+        font-size: 12px;
+        padding: 32px 7px;
+    }
+
+    .stick .mainmenu ul li a {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .welcome-area {
+        height: 750px;
+    }
+
+    .fz-30 {
+        font-size: 18px;
+    }
+
+    .fz-40 {
+        font-size: 28px;
+    }
+
+    .hero-intro {
+        max-width: 520px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+        letter-spacing: 0.045em;
+    }
+
+    .hero-countdown {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-countdown__timer .cdown {
+        min-width: 70px;
+        padding: 14px 15px;
+    }
+
+    .partner-logo {
+        min-height: 90px;
+    }
+
+    .partner-logo img {
+        max-height: 62px;
+    }
+
+    .about-content {
+        max-width: none;
+        padding-right: 0;
+    }
+
+    .about-visual {
+        max-width: none;
+        margin-left: 0;
+    }
+
+    .welcome-area .w-50 {
+        width: 80%;
+    }
+
+    .timeline-bar,
+    .schedule-content::before,
+    .schedule-content::after,
+    .schedule-time span::after {
+        display: none;
+    }
+
+    .schedule-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .schedule-time {
+        bottom: 25px;
+        left: auto;
+        right: 20px;
+        top: auto;
+    }
+
+    .schedule-time span {
+        background-color: #eee;
+        border-radius: 40px;
+        padding: 10px 30px;
+    }
+
+    .single-gallery {
+        width: 49.5%;
+    }
+
+    .contact-form {
+        width: 600px;
+    }
+
+    .blog-sidebar {
+        overflow: hidden;
+    }
+
+    .single-sidebar {
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 31.33%;
+    }
+}
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .speaker-card__name {
+        font-size: 11px;
+    }
+
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+
+
+    .container {
+        width: 300px;
+    }
+
+    .bg-1,
+    .bg-2,
+    .bg-3,
+    .bg-4 {
+        background-repeat: repeat;
+    }
+
+    .xs-mb-50 {
+        margin-bottom: 50px;
+    }
+
+    .xs-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .xs-mt-0 {
+        margin-top: 0px;
+    }
+
+    .header-area,
+    .header-area.stick {
+        height: 50px;
+    }
+
+    .mobile-menu-area {
+        background-color: transparent;
+    }
+
+    .mean-container a.meanmenu-reveal span {
+        background-color: #303030;
+    }
+
+    .mean-container a.meanmenu-reveal {
+        color: #303030;
+        margin-top: 2px;
+    }
+
+    .mean-container .mean-bar {
+        padding: 2px 0 0;
+    }
+
+    .mean-container .mean-bar::after {
+        content: "";
+    }
+
+    .logo {
+        position: absolute;
+        z-index: 9999999;
+    }
+
+    .logo a,
+    #sticker.stick .logo a {
+        width: 100px;
+        padding: 0;
+    }
+
+    .stick .logo a img {
+        max-width: 100%;
+    }
+
+    .hero-intro {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .hero-title {
+        font-size: 26px;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-meta {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-countdown {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-countdown__timer .cdown {
+        min-width: 60px;
+        padding: 11px 14px;
+    }
+
+    .hero-countdown__timer .time-count {
+        font-size: 24px;
+    }
+
+    .partner-logo {
+        min-height: 80px;
+    }
+
+    .partner-logo img {
+        max-height: 56px;
+    }
+
+    .about-content {
+        max-width: none;
+        padding-right: 0;
+    }
+
+    .about-visual {
+        max-width: none;
+        margin-left: 0;
+    }
+
+    .mean-container .mean-nav ul li {
+        border-top: 1px solid #373737;
+    }
+
+    .mean-container .mean-nav ul li a {
+        background-color: #292929;
+        color: #fff;
+        padding: 7px 5%;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+
+    .mean-container .mean-nav ul li li a {
+        color: #eee;
+        padding: 7px 10%;
+    }
+
+    .mean-container .mean-nav ul li a.mean-expand {
+        background: #eee;
+        color: #303030;
+        line-height: 13px;
+    }
+
+    .mean-container .mean-nav ul li a:hover {
+        color: #454545;
+    }
+
+    .dark .mean-container a.meanmenu-reveal span {
+        background-color: #cfcfcf;
+    }
+
+    .dark .mean-container a.meanmenu-reveal {
+        color: #cfcfcf;
+    }
+
+    .welcome-area {
+        padding-top: 70px;
+        height: 650px;
+    }
+
+    .cd-intro h1 {
+        font-size: 19px;
+        line-height: 26px;
+        margin-bottom: 5px;
+    }
+
+    .cd-intro h2 {
+        font-size: 14px;
+    }
+
+    .welcome-area .w-50,
+    .count-down h3 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .count-down {
+        margin-top: 20px;
+    }
+
+    .count-down .cdown {
+        float: left;
+        width: 40%;
+        margin: 0% 5% 10%;
+    }
+
+    .ls-2 {
+        letter-spacing: 0px;
+    }
+
+    .links .button-hover {
+        padding: 5px 20px;
+        font-size: 12px;
+    }
+
+    .mb-50 {
+        margin-bottom: 30px;
+    }
+
+    .schedule-tab ul li {
+        margin-bottom: 20px;
+    }
+
+    .timeline-bar,
+    .schedule-content::before,
+    .schedule-content::after,
+    .schedule-time span::after {
+        display: none;
+    }
+
+    .schedule-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .schedule-img,
+    .schedule-info {
+        width: 100%;
+        float: none;
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .schedule-time {
+        bottom: 25px;
+        left: auto;
+        right: 0px;
+        top: auto;
+        width: 40%;
+    }
+
+    .schedule-time span {
+        background-color: #eee;
+        border-radius: 40px;
+        padding: 7px 16px;
+    }
+
+    .schedule-info h3 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .schedule-info h4 {
+        line-height: 24px;
+    }
+
+    .single-gallery {
+        margin: 0px 0px 10px 0px;
+        width: 100%;
+    }
+
+    .single-price-table {
+        width: 100%;
+    }
+
+    .panel-title a {
+        display: block;
+        padding-left: 30px;
+    }
+
+    .panel-title span {
+        left: 10px;
+        position: absolute;
+        top: 22px;
+    }
+
+    .contact-form {
+        width: 300px;
+    }
+
+    .close-form::after {
+        font-size: 15px;
+        height: 30px;
+        line-height: 27px;
+        right: 15px;
+        top: 15px;
+        width: 30px;
+    }
+
+    .address {
+        height: 400px;
+        width: 280px;
+    }
+
+    .page-title-area h2 {
+        line-height: 32px;
+    }
+
+    #particles-js.page-title-area {
+        padding-top: 30px;
+    }
+
+    .no-gutter.col-3 .single-gallery,
+    .no-gutter .single-gallery,
+    .col-3 .single-gallery {
+        width: 100%;
+    }
+
+    /* Large Mobile :480px. */
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .container {
+            width: 450px;
+        }
+
+        .single-gallery {
+            margin: 0.25%;
+            width: 49.5%;
+        }
+
+        .single-price-table {
+            float: none;
+            margin: 0 auto 30px;
+            width: 70%;
+        }
+
+        .panel-title span {
+            top: 12px;
+        }
+
+        .address {
+            height: 330px;
+            width: 340px;
+        }
+
+        .contact-form {
+            width: 400px;
+        }
+
+        .no-gutter.col-3 .single-gallery,
+        .no-gutter .single-gallery {
+            width: 50%;
+        }
+
+        .col-3 .single-gallery {
+            width: 49.5%
+        }
+    }
+}

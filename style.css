@@ -1,0 +1,1126 @@
+/*
+Template:  junction - event meeting conference business template
+Author: RoyHridoy
+Version: 1.0
+Developed by: Hridoy Roy
+This file contains the styling for the actual Template.
+Please do not change anything here! write in a custom.css file if required!
+*/
+/*================================================
+[  Table of contents  ]
+==================================================
+
+01. preloader
+02. welcome area
+03. highlights
+04. event overview
+05. speakers
+06. schedule
+    06.1 schedule menu
+    06.2 schedule timeline
+07. gallery
+08. pricing
+09. faq
+10. register counter
+11. register form
+12. clients
+13. Contact
+    13.1 Google Map
+    13.2 Contact form
+14. pages
+15. blog
+    15.1 blog sidebar
+    15.2 blog details
+16. Particle
+17. Dark Version
+18. Style Changer
+
+
+======================================
+[ End table content ]
+======================================*/
+
+/*************************
+01. preloader
+*************************/
+body {
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+#preloader {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#fff; /* change if the mask should have another color then white */
+    z-index:99999999; /* makes sure it stays on top */
+}
+#load {
+    width:300px;
+    height:300px;
+    position:absolute;
+    left:0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    background-image:url(img/Preloader.gif);
+    background-repeat:no-repeat;
+    background-position:center;
+    margin: auto;
+}
+
+/*************************
+02. welcome area
+*************************/
+.welcome-area {
+    height: 900px;
+    position: relative;
+    overflow: hidden;
+}
+.cd-headline {
+    line-height: 40px;
+}
+.cd-words-wrapper i {
+    font-style: normal;
+}
+a.button-hover,
+button.button-hover {
+    display: inline-block;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 25px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+a.button-hover.button-small,
+button.button-hover.button-small {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.links {
+    position: relative;
+    left: 5px;
+}
+.links a.button-hover {
+    margin: 0px 10px;
+}
+a.button-hover::after,
+button.button-hover::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    width: 0%;
+    z-index: -1;
+}
+a.button-hover:hover:after,
+button.button-hover:hover:after {
+    width: 100%;
+}
+button.button-hover.border-1-black {
+    border-color: #454545;
+}
+.count-down .cdown {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: inline-block;
+    font-family: "Roboto",sans-serif;
+    font-size: 36px;
+    padding-top: 25px;
+    width: 120px;
+    margin: 0px 10px;
+}
+.count-down .cdown p {
+    background-color: rgba(255, 255, 255, 0.1);
+    display: block;
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 0;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/*************************
+03. highlights
+*************************/
+.single-highlight {
+    border: 1px solid #ddd;
+    padding: 20px;
+    transition: all 0.3s ease 0s;
+}
+.single-highlight .icon {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    height: 80px;
+    line-height: 78px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    width: 80px;
+}
+.single-highlight .icon::before {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease 0s;
+}
+.single-highlight:hover .icon::before {
+    bottom: 5px;
+    left: 5px;
+    opacity: 1;
+    right: 5px;
+    top: 5px;
+}
+
+/*************************
+04. event overview
+*************************/
+.intro-video {
+    background-image: url("img/bg/bg-video.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+}
+.intro-video a {
+    border: 2px solid;
+    border-radius: 50%;
+    color: #ddd;
+    display: inline-block;
+    height: 50px;
+    line-height: 47px;
+    text-align: center;
+    width: 50px;
+}
+
+/*************************
+05. speakers
+*************************/
+.single-speaker {
+    position: relative;
+    overflow: hidden;
+}
+.overlay {
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    transition: all 0.4s ease 0s;
+    width: 0%;
+    visibility: hidden;
+    background-color: #303030;
+    z-index: 1;
+}
+.single-blog:hover .overlay,
+.single-speaker:hover .overlay {
+    visibility: visible;
+    width: 100%;
+}
+.speaker-info {
+    background-color: #efefef;
+    bottom: 0;
+    right: 0;
+    padding: 10px 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+}
+.single-speaker:hover .speaker-info {
+    right: -100%;
+}
+.speaker-info h4 {
+    font-size: 14px;
+}
+.hover-info {
+    font-size: 13px;
+    margin-top: -50px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    left: -100%;
+    z-index: 1;
+}
+.single-speaker:hover .hover-info {
+    left: 0px;
+}
+.hover-info h3 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.hover-info .speaker-social ul li {
+    display: inline-block;
+}
+.hover-info .speaker-social ul li a {
+    border: 1px solid;
+    border-radius: 50%;
+    color: #eee;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 5px;
+    text-align: center;
+    width: 35px;
+    position: relative;
+}
+.hover-info .speaker-social ul li a::after {
+    border-radius: 50%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    width: 0%;
+    z-index: -1;
+}
+.hover-info .speaker-social ul li a:hover:after {
+    width: 100%;
+}
+
+/*************************
+06. schedule
+*************************/
+
+/*************************
+06.1 schedule menu
+*************************/
+.schedule-tab ul li {
+    display: inline-block;
+}
+.schedule-tab ul li a {
+    background-color: #303030;
+    color: #efefef;
+    display: block;
+    position: relative;
+    margin: 0 5px;
+    padding-top: 10px;
+    z-index: 1;
+}
+.schedule-tab ul li a:after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: scaleY(0) rotate(-45deg);
+    bottom: -20px;
+    z-index: -1;
+    transition: all 0.3s ease 0s;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: 0 0 0;
+}
+.schedule-tab ul li.active a:after {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1) rotate(-45deg);
+}
+.schedule-tab ul li a span {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+.schedule-tab ul li a:hover {
+    opacity: 0.8;
+}
+
+/*************************
+06.2 schedule timeline
+*************************/
+.schedule-timeline {
+    position: relative;
+}
+.timeline-bar {
+    background-color: #6f6f6f;
+    height: 95%;
+    left: 20%;
+    position: absolute;
+    top: 0%;
+    width: 5px;
+}
+.schedule-time {
+    position: absolute;
+    width: 20%;
+    left: -30%;
+    top: 40px;
+}
+.single-schedule {
+    position: relative;
+    overflow: hidden;
+}
+.schedule-time span {
+    background-color: #f5f5f5;
+    border-radius: 40px 0 1px 40px;
+    padding: 15px 40px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.schedule-time span:after {
+    width: 28px;
+    height: 28px;
+    background-color: #f5f5f5;
+    content: "";
+    transform: rotate(45deg);
+    position: absolute;
+    right: -10px;
+    transition: all 0.3s ease 0s;
+    top: 11px;
+}
+.single-schedule:hover .schedule-time span {
+    color: #fff;
+}
+.schedule-content {
+    background-color: #f5f5f5;
+    float: left;
+    margin-left: 25%;
+    padding: 20px;
+    position: relative;
+    width: 75%;
+}
+.schedule-img {
+    float: left;
+    width: 40%;
+}
+.schedule-info {
+    margin-left: 42%;
+    width: 58%;
+}
+.schedule-content:after {
+    background-color: #f5f5f5;
+    border: 5px solid #6f6f6f;
+    border-radius: 50%;
+    content: "";
+    height: 30px;
+    position: absolute;
+    left: -70px;
+    top: 40px;
+    transition: all 0.5s ease 0s;
+    width: 30px;
+}
+.schedule-content::before {
+    background-color: #f5f5f5;
+    content: "";
+    height: 28px;
+    left: -14px;
+    position: absolute;
+    top: 40px;
+    transform: rotate(45deg);
+    width: 28px;
+}
+.schedule-info h4 {
+    color: #6f6f6f;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.schedule-info h4 span {
+    font-weight: 400;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+.schedule-info h4 span.separetor {
+    margin: 0 10px;
+    color: #ccc;
+}
+
+/*************************
+07. gallery
+*************************/
+.gallery-items {
+    margin: 0px -.25%;
+}
+.single-gallery {
+    float: left;
+    margin: 0.25%;
+    overflow: hidden;
+    position: relative;
+    width: 24.5%;
+    z-index: 1;
+}
+.no-gutter .single-gallery {
+    margin: 0px;
+    width: 25%;
+}
+.no-gutter.col-3 .single-gallery {
+    width: 33.33%;
+}
+
+.col-3 .single-gallery {
+    width: 32.83%;
+}
+.gallery-img a {
+    display: block;
+    position: relative;
+    z-index: 3;
+}
+.single-gallery .caption {
+    background-color: #2c3e50;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.gallery-img a.p-img img {
+    width: 100%;
+}
+.single-gallery:hover .gallery-img a.p-img {
+    transform: scale(0.6) translateY(-20%);
+    opacity: 0.6;
+}
+.caption-position {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.options {
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    text-align: center;
+    top: 0;
+    transform: translateY(30%);
+    width: 100%;
+    z-index: 3;
+}
+.options ul li {
+    display: inline-block;
+}
+.options ul li a {
+    border: 1px solid #f3f5f7;
+    display: block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 43px;
+    opacity: 0;
+    text-align: center;
+    visibility: hidden;
+    width: 40px;
+    background-color: #454545;
+    pointer-events: auto;
+}
+.options ul li a:hover {
+    transition-delay: 0s;
+}
+.options ul li a:focus {
+    color: #fff;
+}
+.single-gallery:hover .options ul li a {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+.single-gallery:hover .options ul li:last-child a {
+    transition-delay: 0.2s;
+}
+
+/*************************
+08. pricing
+*************************/
+.single-price-table {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    float: left;
+    margin: 0 1%;
+    padding: 20px 0;
+    width: 31.33%;
+    color: #dfdfdf;
+}
+.single-price-table h3 {
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.single-price-table h4.price {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.price-feature ul li {
+    border-bottom: 1px solid #202020;
+    padding: 5px 0;
+    text-transform: capitalize;
+}
+.price-feature ul li:first-child {
+    border-top: 1px solid #202020;
+}
+
+/*************************
+09. faq
+*************************/
+#accordion {
+    border: 1px solid #ddd;
+}
+#accordion .accordion-panel.panel {
+    border-color: #ddd;
+    border-radius: 0;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    margin-top: 0px;
+}
+#accordion .accordion-panel.panel:last-child {
+    border: 0 none;
+}
+.panel-title span {
+    display: block;
+    float: right;
+    height: 21px;
+    position: relative;
+    width: 21px;
+}
+.panel-heading a span::after {
+    background-color: #454545;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 10px;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+.panel-heading a.collapsed span::before {
+    height: 0px;
+    top: 10px;
+}
+.panel-heading a span:before {
+    background-color: #454545;
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    width: 1px;
+    transition: all 0.3s ease 0s;
+}
+.panel-heading {
+    position: relative;
+}
+.panel-title a {
+    color: #454545;
+}
+
+/*************************
+10. register counter
+*************************/
+.register-counter h1 {
+    font-size: 50px;
+    display: inline-block;
+    line-height: 40px;
+}
+
+/*************************
+11. register form
+*************************/
+.registration-form input, .registration-form select {
+    background-color: transparent;
+    border: 1px solid #777;
+    color: #aaa;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    width: 100%;
+}
+.registration-form select option {
+    color: #777;
+}
+
+/*************************
+12. clients
+*************************/
+.clients {
+    cursor: w-resize;
+}
+.single-client img {
+    background-color: #f3f3f3;
+}
+
+/*************************
+13. Contact
+*************************/
+.contact-area {
+    position: relative;
+}
+
+/*************************
+13.1 Google Map
+*************************/
+#google-Map {
+    height: calc(100vh - 70px);
+    width: 100%;
+}
+.address {
+    background-color: #fff;
+    bottom: 0;
+    height: 330px;
+    left: 20px;
+    margin: auto;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    width: 400px;
+}
+.street-address ul li i {
+    border-radius: 50%;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    margin-right: 10px;
+}
+
+/*************************
+13.2 Contact form
+*************************/
+.contact-overlay {
+    background: rgba(0, 0, 0, 0.85) none repeat scroll 0 0;
+    bottom: 0;
+    height: auto;
+    left: 0;
+    display: none;
+    margin: auto;
+    opacity: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2147483647;
+}
+.contact-form {
+    background-color: #fff;
+    width: 720px;
+    margin: 50px auto 0px;
+    padding: 50px 30px;
+    position: relative;
+}
+.close-form::after {
+    content: "\f00d";
+    border: 1px solid #454545;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "fontawesome";
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+#contact-form .input-box input,
+#contact-form .input-textarea textarea {
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+#contact-form .input-textarea textarea {
+    height: 150px;
+    width: 100%;
+}
+.form-messege {
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+.form-messege.success {
+    background-color: #7caa2d;
+}
+.form-messege.error {
+    background-color: #FF420E;
+}
+
+/*************************
+14. pages
+*************************/
+.breadcumb-area li {
+    color: #dfdfdf;
+    display: inline-block;
+    text-transform: capitalize;
+}
+.breadcumb-area ul li a {
+    margin-right: 20px;
+    position: relative;
+    text-transform: uppercase;
+}
+.breadcumb-area ul li a::after {
+    color: #ccc;
+    content: "/";
+    position: absolute;
+    right: -15px;
+    top: -4px;
+}
+.eror-area {
+    height: 100vh;
+}
+.eror-area h1,
+.eror-area h2 {
+    color: #cfcfcf;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    line-height: 40px;
+}
+.eror-area h2 {
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+/*************************
+15. blog
+*************************/
+.single-blog .blog-info {
+    border: 1px solid #eee;
+    padding: 20px 10px 10px;
+}
+.blog-link {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: scaleY(0.8);
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    z-index: 1;
+}
+.single-blog:hover .blog-link {
+    opacity: 1;
+    transform: scaleY(1);
+}
+.blog-link .icon a {
+    display: inline-block;
+    height: 40px;
+    line-height: 43px;
+    margin: 0 3px;
+    width: 40px;
+}
+
+/*************************
+15.1 blog sidebar
+*************************/
+.single-sidebar {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+.search-area .search-box {
+    height: 45px;
+    position: relative;
+}
+.search-area .search-box input {
+    border: 1px solid #eee;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+}
+.search-box button {
+    background-color: transparent;
+    border: 1px solid #eee;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    transition: all 0.5s ease 0s;
+    width: 50px;
+}
+.search-box button:hover {
+    color: #fff;
+}
+.single-sidebar-title h3 {
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+.single-sidebar-menu ul li a {
+    color: #545454;
+    display: block;
+    padding: 5px 0 5px 15px;
+    position: relative;
+    text-transform: capitalize;
+}
+.single-sidebar-menu ul li a::before {
+    content: "\f0b0";
+    font-family: 'fontawesome';
+    font-size: 10px;
+    left: 0;
+    position: absolute;
+    top: 4px;
+}
+.single-sidebar-content .price-slider-amount input {
+    margin-top: 30px;
+}
+.tag-menu ul li {
+    display: inline-block;
+}
+.tag-menu ul li a {
+    border: 1px solid #ddd;
+    color: #666;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    padding: 5px 20px;
+    text-transform: capitalize;
+}
+.tag-menu ul li a:hover {
+    color: #fff;
+}
+.toolbar-bottom {
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    padding-top: 20px;
+    text-align: center;
+}
+.toolbar-bottom ul li {
+    display: inline-block;
+}
+.toolbar-bottom span {
+    font-size: 13px;
+    font-weight: 700;
+}
+.toolbar-bottom ul li.current a {
+    background-color: #303030;
+    color: #fff;
+}
+.toolbar-bottom ul li a {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    width: 30px;
+}
+
+/*************************
+15.2 blog details
+*************************/
+.post-text p {
+    margin-bottom: 20px;
+}
+.post-text blockquote {
+    border-left: 3px solid;
+    color: #888;
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 60px;
+}
+.blog-full-post .blog-info {
+    background-color: #eee;
+    padding: 5px 10px;
+}
+.blog-full-post .blog-info p {
+    margin-bottom: 0;
+}
+.blog-full-post .blog-info p span {
+    margin-right: 10px;
+}
+.blog-full-post .blog-info p span i {
+    margin-right: 3px;
+}
+.comment-box ul li {
+    background-color: #efefef;
+    border-radius: 3px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 20px;
+}
+.comment-box ul li .author-comment {
+    padding-left: 2%;
+    width: 90%;
+}
+.comment-box ul li .author-img {
+    width: 10%;
+}
+.author-comment h5 {
+    color: #777;
+    margin-bottom: 0;
+}
+.author-comment h5 a {
+    display: inline-block;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+.author-comment p {
+    line-height: 24px;
+    margin-bottom: 0;
+}
+.author-comment h5 a.reply {
+    color: #777;
+    margin-right: 15px;
+}
+.comment-box ul li.comment-reply {
+    margin-left: 50px;
+}
+
+/*************************
+16. Particle
+*************************/
+#particles-js .d-table {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.particles-js-canvas-el {
+    position: relative;
+    z-index: 0;
+}
+#particles-js.page-title-area {
+    height: 350px;
+}
+
+/*************************
+17. Dark Version
+*************************/
+.dark .bg-light-gray-2,
+.dark .header-area.stick,
+.dark .schedule-content,
+.dark .schedule-content::before,
+.dark .schedule-content::after,
+.dark .schedule-time span,
+.dark .schedule-time span::after {
+    background-color: #151515;
+}
+.dark .bg-white,
+.dark .address {
+    background-color: #000;
+}
+body .dark {
+    color: #aaa;
+}
+.dark .header-area,
+.dark .sub-menu::before {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.dark .header-area.stick {
+    box-shadow: 0 2px 3px #333;
+}
+.dark .sub-menu,
+.dark .sub-menu li a,
+.dark .stick .sub-menu li a{
+    border-color: #222;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark .color-black,
+.dark .color-hover-black:hover,
+.dark .panel-title a,
+.dark .mainmenu ul li a {
+    color: #cfcfcf;
+}
+.dark #accordion .accordion-panel.panel {
+    background-color: #000;
+    border-color: #222;
+}
+.dark #accordion {
+    border-color: #222;
+}
+.dark #accordion .accordion-panel .panel-collapse .panel-body {
+    border-top-color: #222;
+}
+.dark .panel-heading a span::before, .dark .panel-heading a span::after {
+    background-color: #cfcfcf;
+}
+.dark .speaker-info {
+    background-color: #303030;
+}
+
+/*************************
+13. Style Changer
+*************************/
+.style-changer {
+    position: fixed;
+    top: 170px;
+    width: 160px;
+    left: -161px;
+    transition: all 0.3s ease 0s;
+    z-index: 9999;
+}
+.style-changer.open {
+    left: 0px;
+}
+.style-changer-box {
+    border-right: 0px solid #ddd;
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.3);
+    padding: 10px 5px 0 10px;
+}
+.style-box-control button {
+    background-color: #fff;
+    border-left: 0px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    height: 40px;
+    position: absolute;
+    font-size: 18px;
+    right: -39px;
+    width: 40px;
+    box-shadow: 1px 0 10px #ddd;
+    cursor: pointer;
+}
+.style-changer-box button {
+    cursor: pointer;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    width: 40px;
+}
+.style-changer-box button.disabled {
+    cursor: not-allowed;
+}
+.style-changer-box button.color-default {
+    background-color: #2ECC71;
+    border: 1px solid #2ECC71;
+}
+.style-changer-box button.color-red {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+}
+.style-changer-box button.color-green {
+    background-color: #74A700;
+    border: 1px solid #74A700;
+}
+.style-changer-box button.color-gold {
+    background-color: #daa520;
+    border: 1px solid #daa520;
+}
+.style-changer-box button.color-blue {
+    background-color: #21C2F8;
+    border: 1px solid #21C2F8;
+}
+.style-changer-box button.color-yellow {
+    background-color: #FF9900;
+    border: 1px solid #FF9900;
+}

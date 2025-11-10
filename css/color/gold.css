@@ -1,0 +1,67 @@
+/*
+******************************
+Template:  junction - event meeting conference business template
+Author: RoyHridoy
+Version: 1.0
+Developed by: Hridoy Roy
+This file contains the default color for the actual Template.
+
+******************************
+*/
+
+.bg-main,
+.bg-hover-main:hover,
+.mainmenu ul li a:after,
+.mainmenu ul li a span::after,
+a.button-hover::after,
+a.button-hover::before,
+button.button-hover::after,
+button.button-hover::before,
+.street-address ul li i,
+.cd-headline.clip .cd-words-wrapper::after,
+.hover-info .speaker-social ul li a::after,
+.schedule-tab ul li a:after,
+.schedule-tab ul li.active a,
+.single-schedule:hover .schedule-time span::after,
+.single-schedule:hover .schedule-time span,
+.single-schedule:hover .schedule-content:after,
+.search-box button:hover,
+.tag-menu ul li a:hover,
+#scrollUp {
+    background-color: #daa520;
+}
+.color-main,
+.color-hover-main:hover,
+.mainmenu ul li:hover > a,
+.mainmenu ul li.active > a,
+.mainmenu ul li.has-child.active > a::before,
+.mainmenu ul li.has-child:hover > a::before,
+.mainmenu ul li.has-child.sub:hover > a::before,
+.single-highlight:hover .icon,
+.breadcumb-area ul li a,
+.eror-area h2 span,
+.search-box:focus input,
+.single-sidebar-menu ul li a:hover,
+.blog-full-post .blog-info p span i,
+.author-comment h5 a,
+.author-comment h5 a.reply:hover {
+    color: #daa520;
+}
+.border-1-main,
+.border-1-main-hover:hover,
+.options ul li a:hover {
+    border: 1px solid #daa520;
+}
+a.button-hover:hover,
+button.button-hover:hover,
+button.button-hover.border-1-black:hover,
+.single-highlight:hover,
+.single-highlight:hover .icon,
+.single-highlight:hover .icon::before,
+.hover-info .speaker-social ul li a:hover,
+.search-box:focus input,
+.search-box button:hover,
+.tag-menu ul li a:hover,
+.post-text blockquote {
+    border-color: #daa520;
+}
