@@ -11,24 +11,28 @@
 }
 
 .partners-area .partner-logo img {
-    height: 120px;
+    height: 74px;
     width: auto;
     object-fit: contain;
 }
 
 .partners-area .partner-logo:first-child img {
-    height: 250px;
+    height: 102px;
 }
 
 .partners-area .partner-logo:nth-child(2) img {
-    height: 90px;
+    height: 54px;
+}
+
+.partners-area .partner-logo:nth-child(3) img {
+    height: 48px;
 }
 
 .partners-area .cols-gutter {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 70px;
 }
 
 @media (max-width: 991px) {
@@ -42,19 +46,19 @@
         height: 70px;
     }
     .partners-area .cols-gutter {
-        gap: 60px;
+        gap: 30px;
     }
 }
 
 @media (max-width: 767px) {
     .partners-area .cols-gutter {
         flex-direction: column;
-        gap: 30px;
+        gap: 24px;
     }
     .partners-area .partner-logo img,
     .partners-area .partner-logo:first-child img,
     .partners-area .partner-logo:nth-child(2) img {
-        height: 40px;
+        height: 42px;
     }
 }
 
@@ -62,12 +66,6 @@
   Mobile layout refinements
 -----------------------------------------*/
 @media (max-width: 767px) {
-    .container {
-        width: 100% !important;
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
     .ptb-80 {
         padding-top: 48px;
         padding-bottom: 48px;
@@ -176,26 +174,26 @@
     }
 
     .price-area .price-tables {
-        display: grid;
+        flex-direction: column;
         gap: 18px;
+        align-items: center;
     }
 
-    .single-price-table {
-        float: none;
+    .price-area .price-tables .single-price-table {
         width: 100%;
-        margin: 0;
+        max-width: 420px;
     }
 
-    .price-area .button-hover {
-        width: 100%;
-        display: inline-block;
+    .price-area .price-tables > a.button-hover {
+        flex-basis: auto;
+        width: auto;
+        margin-top: 20px;
     }
-
-    .header-area,
-    .header-area.stick {
-        height: auto;
-        padding: 12px 0;
-    }
+.header-area,
+.header-area.stick {
+    height: auto;
+    padding: 12px 0;
+}
 
 .logo {
         position: static;
@@ -443,29 +441,142 @@
   Komiteler sayfası
 *******************************************/
 .committee-section {
-    background-color: #ffffff;
+    background-color: #f7fbfa;
     padding-top: 110px;
-    border-top: 1px solid #bebebe;
-    padding-bottom: 60px;
+    border-top: 1px solid #d1e5e1;
+    padding-bottom: 70px;
 }
 
 .committee-container {
-    max-width: 900px;
     margin: 50px auto 70px;
     padding: 0 40px;
 }
 
+.conference-summary {
+    text-align: center;
+    margin: 0 auto 38px;
+    color: #1f2d2b;
+    line-height: 1.5;
+}
+
+.conference-summary__title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    margin-bottom: 6px;
+}
+
+.conference-summary__tagline {
+    font-size: 16px;
+    font-style: italic;
+    color: #4f5f5c;
+    margin-bottom: 12px;
+}
+
+.conference-summary__meta {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #272727;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.conference-summary__divider {
+    font-weight: 400;
+    letter-spacing: normal;
+    color: #8a9a97;
+}
+
+.committee-panel--info {
+    margin-top: 32px;
+    border: none;
+    border-radius: 2px;
+    background-color: #f7fbfa;
+    padding: 0;
+    overflow: hidden;
+}
+
+.committee-info-table {
+    width: 100%;
+    border: 1px solid #1cad99;
+    border-collapse: collapse;
+    background-color: #f7fbfa;
+}
+
+.committee-info-table tbody tr + tr td {
+    border-top: 1px solid #1cad99;
+}
+
+.committee-info-table td {
+    padding: 32px 56px;
+    text-align: center;
+    background-color: #f7fbfa;
+}
+
+.committee-info__title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #272727;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.committee-info__text {
+    font-size: 15px;
+    color: #272727;
+    line-height: 1.75;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.committee-info__text a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.committee-info__text a:hover {
+    text-decoration: underline;
+}
+
+.committee-info__label {
+    font-weight: 700;
+    color: #1f2d2b;
+    letter-spacing: 0.04em;
+}
+
+.committee-info__list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 15px;
+    color: #3c4a48;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.committee-info__list li {
+    letter-spacing: 0.02em;
+}
+
+
 .committee-heading span {
     display: inline-block;
-    background-color: #1cad99;
+    background-color: #04a6ad;
     color: #ffffff;
     padding: 12px 28px;
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: 0.16em;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     width: 100%;
     white-space: nowrap;
+    border-radius: 3px;
+    text-align: center;
 }
 
 .committee-panel {
@@ -607,6 +718,39 @@
         margin: 0 0 50px;
     }
 
+    .conference-summary {
+        margin-bottom: 28px;
+    }
+
+    .conference-summary__title {
+        font-size: 20px;
+    }
+
+    .conference-summary__meta {
+        font-size: 15px;
+        flex-direction: column;
+        gap: 4px;
+        letter-spacing: 0.06em;
+    }
+
+    .conference-summary__divider {
+        display: none;
+    }
+
+    .committee-info-table td {
+        padding: 22px 18px;
+    }
+
+    .committee-info__title {
+        font-size: 14px;
+    }
+
+    .committee-info__text,
+    .committee-info__list {
+        font-size: 14px;
+        text-align: center;
+    }
+
     .committee-list--columns-text {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -624,6 +768,628 @@
     .committee-subheading span:first-child,
     .committee-subheading span:last-child {
         padding: 0;
+    }
+}
+
+/******************************************
+  Kongre davet sayfası
+*******************************************/
+.invitation-section {
+    background-color: #fdfdfd;
+    padding: 120px 0 110px;
+}
+
+.invitation-container {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.invitation-logos-row {
+    background: #f3f5f7;
+    padding: 26px 0;
+    margin-bottom: 42px;
+}
+
+.invitation-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    flex-wrap: nowrap;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.invitation-logo {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.invitation-logo a {
+    display: inline-block;
+}
+
+.invitation-logo img {
+    height: 74px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.invitation-logo--whr img {
+    height: 82px;
+}
+
+.invitation-logo--bau img {
+    height: 54px;
+}
+
+.invitation-logo--its img {
+    height: 50px;
+}
+
+.invitation-heading {
+    margin-bottom: 32px;
+    margin-top: 32px;
+    color: #1f2d2b;
+}
+
+.invitation-heading__title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.invitation-heading__tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: #546360;
+}
+
+.invitation-heading__meta {
+    font-size: 16px;
+    font-weight: 700;
+    color: #272727;
+}
+
+.invitation-body {
+background-color: #ffffff;
+    color: #272727;
+    text-align: left;
+
+}
+
+.invitation-body h2 {
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #272727;
+    text-align: center;
+}
+
+.invitation-body p {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.invitation-signature {
+    margin-top: 36px;
+    font-size: 15px;
+}
+
+.invitation-signature__name {
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+/******************************************
+  Konuşmacılar sayfası
+*******************************************/
+.speaker-page {
+    padding-bottom: 60px;
+}
+
+.speaker-hero {
+    padding-bottom: 10px;
+}
+
+.speaker-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.speaker-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 26px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    color: #ffffff;
+    background: #c3cfcc;
+    transition: all 0.2s ease;
+    flex: 1 1 240px;
+    max-width: 320px;
+    box-shadow: 0 6px 16px rgba(15, 34, 31, 0.16);
+    opacity: 0.7;
+}
+
+.speaker-tab--conference {
+    background: #99c3be;
+}
+
+.speaker-tab--clinic {
+    background: #b5bbc3;
+}
+
+.speaker-tab--experiential {
+    background: #d3cebc;
+    color: #ffffff;
+}
+
+.speaker-tab:hover,
+.speaker-tab:focus {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(18, 40, 36, 0.22);
+    opacity: 0.95;
+}
+
+.speaker-tab.is-active {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(17, 43, 38, 0.25);
+}
+
+.speaker-tab--conference.is-active {
+    background: #3db7a8;
+}
+
+.speaker-tab--clinic.is-active {
+    background: #3d72c4;
+}
+
+.speaker-tab--experiential.is-active {
+    background: #edc731;
+    color: #3c2b00;
+}
+
+.speaker-section {
+    display: none;
+}
+
+.speaker-section.is-active {
+    display: block;
+}
+
+.speaker-section__heading {
+    text-align: center;
+}
+
+.speaker-section__heading span {
+    display: inline-block;
+    padding: 16px 34px;
+    border-radius: 6px;
+    border: 1px solid #cfd8d6;
+    background: #f7fbfa;
+    font-size: 14px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #1b2a28;
+}
+
+.speaker-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.speaker-grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.our-sponsor-area .single-client img {
+    max-height: 74px;
+    width: auto;
+    object-fit: contain;
+    background-color: #f6f8f7;
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.speaker-grid--carousel {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+    row-gap: 24px;
+}
+
+@media (max-width: 1199px) {
+    .speaker-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .speaker-grid--carousel {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991px) {
+    .speaker-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .speaker-grid--carousel {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.speaker-carousel__slide {
+    padding: 10px 5px;
+}
+
+.speaker-card {
+    background: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.speaker-card__image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d0d8d2;
+}
+
+.speaker-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.speaker-card__name {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    margin: 0;
+    padding: 11px 14px;
+    border-radius: 0 0 4px 4px;
+    border: none;
+    border-top: 1px solid #d0d0d0;
+    width: 100%;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1.35;
+}
+
+.speaker-section--conference .speaker-card__name {
+    background: #a5cccc;
+    color: #1b2a28;
+}
+
+.speaker-section--clinic .speaker-card__name {
+    background: #aec8f0;
+    color: #1b2532;
+}
+
+.speaker-section--experiential .speaker-card__name {
+    background: #f2e4ab;
+    color: #3b2d00;
+}
+
+@media (max-width: 767px) {
+    .invitation-section {
+        padding: 100px 0 80px;
+    }
+
+    .invitation-body {
+        padding: 32px 22px 40px;
+        text-align: left;
+    }
+
+    .invitation-body h2 {
+        letter-spacing: 0.18em;
+        text-align: center;
+    }
+
+    .invitation-logos-row {
+        padding: 22px 0;
+        margin-bottom: 34px;
+    }
+
+    .invitation-logos {
+        gap: 26px;
+        padding: 0 28px;
+        flex-wrap: wrap;
+    }
+
+    .invitation-logo img {
+        height: 58px;
+    }
+
+    .invitation-logo--whr img {
+        height: 62px;
+    }
+
+    .invitation-logo--bau img {
+        height: 46px;
+    }
+
+    .invitation-logo--its img {
+        height: 40px;
+    }
+
+    .speaker-tabs {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .speaker-tab {
+        width: 100%;
+        border-radius: 18px;
+        justify-content: flex-start;
+        padding: 12px 18px;
+        letter-spacing: 0.1em;
+        margin-right: 0;
+        box-shadow: 0 10px 16px rgba(21, 36, 33, 0.15);
+    }
+
+    .speaker-tab + .speaker-tab {
+        margin-left: 0;
+    }
+
+    .speaker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .speaker-grid--carousel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .invitation-logos-row {
+        padding: 18px 0;
+    }
+
+    .invitation-logos {
+        gap: 16px;
+        padding: 0 18px;
+    }
+
+    .invitation-logo img {
+        height: 46px;
+    }
+
+    .invitation-logo--whr img {
+        height: 50px;
+    }
+
+    .invitation-logo--bau img {
+        height: 38px;
+    }
+
+    .invitation-logo--its img {
+        height: 34px;
+    }
+
+    .invitation-heading__title {
+        font-size: 20px;
+    }
+
+    .invitation-heading__meta {
+        letter-spacing: 0.12em;
+    }
+
+    .speaker-tabs {
+        gap: 8px;
+    }
+
+    .speaker-section__heading span {
+        letter-spacing: 0.18em;
+        padding: 14px 18px;
+    
+}
+
+.speaker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.speaker-grid--carousel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.price-area .price-tables {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.price-area .price-tables .single-price-table {
+    flex: 1 1 30%;
+    max-width: 360px;
+    min-width: 280px;
+}
+
+.price-area .price-tables > a.button-hover {
+    display: inline-flex;
+    margin: 40px auto 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+    flex-basis: 100%;
+}
+
+@media (max-width: 991px) {
+    .price-area .price-tables {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+    }
+
+    .price-area .price-tables .single-price-table {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .price-area .price-tables > a.button-hover {
+        flex-basis: auto;
+        width: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-area > .container.pos-relative {
+        width: 100%;
+        max-width: 1360px;
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+#pricing.price-area {
+    position: relative;
+    padding: 110px 0 120px;
+    background: transparent;
+    overflow: hidden;
+}
+
+#pricing.price-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(7, 11, 17, 0.95), rgba(7, 11, 17, 0.78)), url("../img/bg/3.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+#pricing.price-area .container {
+    position: relative;
+    z-index: 1;
+}
+
+#pricing.price-area .section-title h2 {
+    letter-spacing: 0.35em;
+    color: #ffffff;
+}
+
+#pricing.price-area .price-tables {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    flex-wrap: nowrap;
+}
+
+#pricing.price-area .single-price-table {
+    flex: 0 0 320px;
+    max-width: 320px;
+    width: 320px;
+    background-color: rgba(21, 26, 34, 0.78);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 45px 32px 50px;
+    min-height: 260px;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pricing.price-area .single-price-table h3 {
+    color: #ffffff;
+    letter-spacing: 0.2em;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+#pricing.price-area .price-feature ul {
+    padding: 0;
+    list-style: none;
+}
+
+#pricing.price-area .price-feature ul li {
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+#pricing.price-area .price-tables > a.button-hover {
+    min-width: 240px;
+    border-radius: 50px;
+    padding: 14px 45px;
+    border: 1px solid #32c0b1;
+    color: #32c0b1;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    background: transparent;
+    transition: all 0.25s ease;
+}
+
+#pricing.price-area .price-tables > a.button-hover:hover,
+#pricing.price-area .price-tables > a.button-hover:focus {
+    background-color: #32c0b1;
+    color: #0a1218;
+}
+
+@media (max-width: 991px) {
+    #pricing.price-area {
+        padding: 90px 0 100px;
+    }
+
+    #pricing.price-area .price-tables {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        justify-content: flex-start;
+    }
+
+    #pricing.price-area .single-price-table {
+        flex: 0 0 280px;
+        max-width: 280px;
+        width: 280px;
+    }
+}
+
+@media (max-width: 640px) {
+    #pricing.price-area .section-title h2 {
+        letter-spacing: 0.2em;
+        font-size: 20px;
+    }
+
+    #pricing.price-area .single-price-table {
+        min-height: 0;
+        padding: 32px 26px;
+    }
+
+    #pricing.price-area .price-tables > a.button-hover {
+        letter-spacing: 0.18em;
     }
 }
 
@@ -1346,4 +2112,5 @@
     .kayit-form .radio-group {
         flex-direction: column;
     }
+}
 }
