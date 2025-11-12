@@ -118,6 +118,16 @@ button.button-hover::after {
     width: 0%;
     z-index: -1;
 }
+.speaker-button {
+    color: #272727;
+    border-color: #272727;
+}
+.speaker-button::after {
+    background: #272727;
+}
+.speaker-button:hover {
+    color: #ffffff;
+}
 a.button-hover:hover:after,
 button.button-hover:hover:after {
     width: 100%;
@@ -564,6 +574,8 @@ button.button-hover.border-1-black {
     min-width: 280px;
     max-width: 360px;
     width: auto;
+    color: #ffffff;
+    border-color: #ffffff;
 }
 .single-price-table h3 {
     letter-spacing: 2px;

@@ -52,11 +52,11 @@
 }
 
 .kayit-form-area {
-    background-color: #eef4f1;
-    padding: 60px 0 90px;
+    background-color: #ffffff;
+    padding: 180px 0 100px;
 }
 
-.kayit-sheet {
+/* .kayit-sheet {
     background: #fff;
     border: 1px solid var(--kayit-border);
     border-radius: 12px;
@@ -64,7 +64,7 @@
     margin: 0 auto;
     padding: 45px 50px;
     box-shadow: 0 18px 45px rgba(34, 60, 55, 0.1);
-}
+} */
 
 .form-header {
     background: var(--kayit-green-50);
@@ -89,22 +89,26 @@
 .kayit-form {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 15px;
 }
 
 .kayit-form .form-card {
-    /* border: 1px solid var(--kayit-border); */
+    border: 1px solid var(--kayit-border);
     border-radius: 10px;
-    /* padding: 28px 30px; */
+    padding: 28px 30px; 
     background: #fff;
 }
 
-/* .form-card--personal { border-top: 6px solid #b1e1d3; } */
 .form-card--fees {
-    border-top: none;
-    padding: 0 0 18px;
+    border-top: 6px solid #b1e1d3;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
-.form-card--discounts { border-top: 6px solid #8ac4ad; }
+
 .form-card--format { border-top: 6px solid #79baa2; }
 .form-card--workshops { border-top: 6px solid #6eb399; }
 .form-card--payment { border-top: 6px solid #63a889; }
@@ -188,15 +192,36 @@
 }
 
 .kayit-heading span{
-    display: inline-block;
-    background-color: #1cad99;
+      display: inline-block;
+    background-color: #3db7a8;
     color: #ffffff;
-    padding: 12px 28px;
-    font-size: 20px;
-    font-weight: 900;
-    /* letter-spacing: 0.16em; */
+    padding: 11px 19px;
+    font-size: 22px;
+    font-weight: 800;
     text-transform: uppercase;
     width: 100%;
+}
+
+.kayit-subheading span {
+    display: inline-block;
+    width: 100%;
+    background-color: #b8ddd8;
+    color: #1e3f3a;
+    padding: 12px 26px;
+    font-size: 16px;
+    /* font-weight: 700; */
+    /* text-transform: uppercase; */
+    /* border: 1px solid #1aa495; */
+    /* border-radius: 8px 8px 0 0; */
+    letter-spacing: 0.04em;
+}
+
+.kayit-heading + .form-card--fees {
+    margin-top: 0;
+}
+
+.kayit-subheading + .form-card--fees {
+    margin-top: 0;
 }
 
 .kayit-form .form-group label {
@@ -238,21 +263,23 @@
 .kayit-form .discount-options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 18px;
 }
 
 .kayit-form .checkbox-control,
 .kayit-form .radio-control {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 320px 1fr;
+    gap: 10px 30px;
+    align-items: start;
     padding: 12px 0;
     cursor: pointer;
 }
 
 .kayit-form .discount-options .checkbox-control {
     border-bottom: 1px solid #e3ebe7;
+    padding-bottom: 16px;
 }
 
 .kayit-form .discount-options .checkbox-control:last-child {
@@ -267,14 +294,20 @@
 
 .kayit-form .checkbox-control span,
 .kayit-form .radio-control span {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--kayit-text);
+    line-height: 1.5;
+    text-transform: none;
 }
 
-.kayit-form .checkbox-control small {
-    display: block;
-    color: #49635f;
+.kayit-form .checkbox-label {
+    font-weight: 600;
+}
+
+.kayit-form .checkbox-desc {
     font-weight: 400;
+    font-size: 14px;
+    color: #4b5351;
 }
 
 .kayit-form .checkbox-control--table {
@@ -295,6 +328,17 @@
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .kayit-form .checkbox-control,
+    .kayit-form .radio-control {
+        grid-template-columns: auto 1fr;
+    }
+
+    .kayit-form .checkbox-desc {
+        grid-column: 2 / 3;
+    }
 }
 
 .kayit-form input[type="checkbox"],
@@ -362,6 +406,16 @@
     font-size: 14px;
 }
 
+.kayit-table thead th,
+.kayit-table tbody td,
+.fee-table thead th,
+.fee-table tbody td,
+.workshop-table thead th,
+.workshop-table tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .kayit-table thead th {
     background-color: #cfe8dd;
     padding: 12px;
@@ -373,37 +427,24 @@
 
 .kayit-table tbody td {
     padding: 12px;
-    border-bottom: 1px solid var(--kayit-border);
-    vertical-align: top;
+    vertical-align: middle;
 }
 
-.fee-table tbody tr:nth-child(even),
 .workshop-table tbody tr:nth-child(even) {
     background-color: #f8fbf9;
 }
 
-.form-card--fees .section-heading {
-    background: #bfe0d9;
-    border: 2px solid #2f9c90;
-    border-radius: 6px 6px 0 0;
-    padding: 18px 22px;
-    margin-bottom: 0;
-}
-
-.form-card--fees .section-heading__eyebrow {
-    color: #1f5f59;
-}
-
-.form-card--fees .section-heading h2 {
-    color: #0d3f3a;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.form-card--fees {
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    padding: 0;
+    background: #ffffff;
 }
 
 .form-card--fees .table-scroll {
-    border: 2px solid #2f9c90;
-    border-top: 0;
-    border-radius: 0 0 6px 6px;
+    border: 0;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -415,18 +456,36 @@
 .fee-table thead th {
     background: #fff;
     color: #1f3b36;
-    border-bottom: 2px solid #2f9c90;
-    border-right: 1px solid #9ac8c0;
-    font-size: 13px;
+    border: 1px solid #1aa495;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 16px 12px;
+}
+
+.fee-table thead th small {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 4px;
+    color: #496560;
 }
 
 .fee-table thead th:last-child {
     border-right: 0;
 }
 
+.fee-table thead th:first-child,
+.fee-table tbody td:first-child {
+    text-align: left;
+}
+
 .fee-table tbody td {
-    border-right: 1px solid rgba(47, 156, 144, 0.35);
-    border-top: 1px solid rgba(47, 156, 144, 0.35);
+    border-right: 1px solid rgba(26, 164, 149, 0.4);
+    border-top: 3px solid #ffffff;
+    padding: 16px 12px;
+    font-size: 15px;
 }
 
 .fee-table tbody td:last-child {
@@ -436,18 +495,26 @@
 .fee-table tbody td:first-child {
     font-weight: 700;
     color: #2c4a43;
+    line-height: 1.4;
+}
+
+.fee-table tbody tr:last-child td {
+    border-bottom: 0;
 }
 
 .fee-row--green td {
-    background: #c5e9d6;
+    background: #c1e5c9;
+    border-bottom: 2px solid #ffffff;
 }
 
 .fee-row--yellow td {
-    background: #ffe39f;
+    background: #ffe19b;
+    border-bottom: 2px solid #ffffff;
 }
 
 .fee-row--blue td {
-    background: #cfddfb;
+    background: #cddaf8;
+    border-bottom: 2px solid #ffffff;
 }
 
 .workshop-heading {
