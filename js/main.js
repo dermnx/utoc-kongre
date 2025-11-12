@@ -203,24 +203,15 @@ NOTE: This is main js file. All js plugin active & custom js included in this fi
 ********************/
     $('.speakers').owlCarousel({
         loop:true,
-        margin:15,
+        margin:20,
         nav:false,
-        dots:false,
+        dots:true,
         autoplay: true,
         autoplayHoverPause: true,
         responsive:{
-            0:{
-                items:1
-            },
-            480:{
-                items:2
-            },
-            767:{
-                items:3
-            },
-            1000:{
-                items:4
-            }
+            0:{ items:1 },
+            768:{ items:1 },
+            1200:{ items:1 }
         }
     });
 

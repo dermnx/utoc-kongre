@@ -26,9 +26,9 @@ NOTE: This is Header style file. All Header related style included in this file.
 *************************/
 .header-area {
     position: relative;
-    background-color: #f5f6f7;
-    padding: 22px 0;
-    border-top: 4px solid #4166ac;
+    background-color: #ffffff;
+    padding: 30px 0;
+    border-top: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
@@ -40,6 +40,7 @@ nav.collapse {
     padding: 0;
 }
 .header-row {
+    width: 1350px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -140,6 +141,11 @@ nav.collapse {
         font-size: 13px;
         letter-spacing: 0.12em;
     }
+
+    .header-area > .container.pos-relative {
+        max-width: 100%;
+        padding: 0 18px;
+    }
 }
 
 /*************************
@@ -154,7 +160,7 @@ nav.collapse {
 }
 .header-area.stick {
     background-color: #ffffff;
-    padding: 12px 0;
+    padding: 18px 0;
     top: 0;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }

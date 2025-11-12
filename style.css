@@ -540,11 +540,30 @@ button.button-hover.border-1-black {
 .single-price-table {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    float: left;
-    margin: 0 1%;
-    padding: 20px 0;
-    width: 31.33%;
+    float: none;
+    margin: 0;
+    padding: 30px 20px;
+    width: auto;
+    max-width: 320px;
+    flex: 1 1 300px;
     color: #dfdfdf;
+}
+.price-area .price-tables {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.price-area .price-tables > a.button-hover {
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0;
+    min-width: 280px;
+    max-width: 360px;
+    width: auto;
 }
 .single-price-table h3 {
     letter-spacing: 2px;
@@ -555,13 +574,47 @@ button.button-hover.border-1-black {
     font-size: 30px;
     margin-bottom: 15px;
 }
+.price-feature ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .price-feature ul li {
-    border-bottom: 1px solid #202020;
-    padding: 5px 0;
-    text-transform: capitalize;
+    border-bottom: none;
+    padding: 10px 10px 0;
+    text-transform: none;
+    line-height: 1.7;
+    font-size: 15px;
 }
 .price-feature ul li:first-child {
-    border-top: 1px solid #202020;
+    border-top: none;
+}
+
+@media (max-width: 991px) {
+    .single-price-table {
+        flex: 1 1 45%;
+        max-width: 360px;
+    }
+
+    .price-area .price-tables > a.button-hover {
+        margin-top: 16px;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 640px) {
+    .single-price-table {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: none;
+    }
+
+    .price-area .price-tables > a.button-hover {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
 }
 
 /*************************
