@@ -82,7 +82,7 @@
     color: #314542;
 }
 
-.form-header li + li {
+.form-header li+li {
     margin-top: 6px;
 }
 
@@ -92,12 +92,13 @@
     gap: 15px;
 }
 
+/* 
 .kayit-form .form-card {
     border: 1px solid var(--kayit-border);
     border-radius: 10px;
     padding: 28px 30px; 
     background: #fff;
-}
+} */
 
 .form-card--fees {
     border-top: 6px solid #b1e1d3;
@@ -109,12 +110,11 @@
     border-bottom: none;
 }
 
-.form-card--format { border-top: 6px solid #79baa2; }
-.form-card--workshops { border-top: 6px solid #6eb399; }
-.form-card--payment { border-top: 6px solid #63a889; }
+
+/* .form-card--payment { border-top: 6px solid #63a889; }
 .form-card--bank { border-top: 6px solid #f1c159; }
 .form-card--info { border-top: 6px solid #f0b24d; }
-.form-card--submit { border-top: 6px solid #4a9f87; }
+.form-card--submit { border-top: 6px solid #4a9f87; } */
 
 .kayit-form .section-heading {
     display: flex;
@@ -143,6 +143,67 @@
     font-size: 14px;
     color: #4d5d5a;
     margin: 0;
+}
+
+.document-upload {
+    display: flex;
+    align-items: stretch;
+}
+
+.document-upload__label {
+    background-color: #34b4ab;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.document-upload__label:focus,
+.document-upload__label:hover {
+    background-color: #2aa095;
+}
+
+.document-upload__label:focus-visible {
+    box-shadow: 0 0 0 3px rgba(28, 222, 229, 0.4);
+}
+
+.document-upload__actions {
+    flex: 1;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.document-upload__hint {
+    font-size: 14px;
+    color: #6c7a76;
+    font-style: italic;
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .document-upload {
+        flex-direction: column;
+    }
+
+    .document-upload__label {
+        width: 100%;
+    }
+
+    .document-upload__actions {
+        padding-left: 0;
+        margin-top: 15px;
+    }
 }
 
 .kayit-form .form-grid {
@@ -191,8 +252,8 @@
     font-size: 16px;
 }
 
-.kayit-heading span{
-      display: inline-block;
+.kayit-heading span {
+    display: inline-block;
     background-color: #3db7a8;
     color: #ffffff;
     padding: 11px 19px;
@@ -208,6 +269,7 @@
     background-color: #b8ddd8;
     color: #1e3f3a;
     padding: 12px 26px;
+    margin-bottom: 10px;
     font-size: 16px;
     /* font-weight: 700; */
     /* text-transform: uppercase; */
@@ -216,11 +278,11 @@
     letter-spacing: 0.04em;
 }
 
-.kayit-heading + .form-card--fees {
+.kayit-heading+.form-card--fees {
     margin-top: 0;
 }
 
-.kayit-subheading + .form-card--fees {
+.kayit-subheading+.form-card--fees {
     margin-top: 0;
 }
 
@@ -241,7 +303,6 @@
 .kayit-form .radio-control input {
     width: 100%;
     border: 1px solid var(--kayit-border);
-    border-radius: 6px;
     padding: 11px 14px;
     font-size: 15px;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -263,24 +324,26 @@
 .kayit-form .discount-options {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     margin-bottom: 18px;
+    padding-left: 16px;
+    padding-top: 11px;
 }
 
 .kayit-form .checkbox-control,
 .kayit-form .radio-control {
-    display: grid;
-    grid-template-columns: auto 320px 1fr;
-    gap: 10px 30px;
+    
+    grid-template-columns: auto 300px 1fr;
+    gap: 10px 15px;
     align-items: start;
-    padding: 12px 0;
+    padding: 5px 0;
     cursor: pointer;
+    padding-left: 10px;
 }
 
-.kayit-form .discount-options .checkbox-control {
+/* .kayit-form .discount-options .checkbox-control {
     border-bottom: 1px solid #e3ebe7;
     padding-bottom: 16px;
-}
+} */
 
 .kayit-form .discount-options .checkbox-control:last-child {
     border-bottom: 0;
@@ -294,7 +357,8 @@
 
 .kayit-form .checkbox-control span,
 .kayit-form .radio-control span {
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--kayit-text);
     line-height: 1.5;
     text-transform: none;
@@ -311,26 +375,22 @@
 }
 
 .kayit-form .checkbox-control--table {
+    display: flex;
     padding: 0;
     border: 0;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.kayit-form .checkbox-control--table span {
-    font-size: 13px;
-    color: var(--kayit-green-500);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-.kayit-form .radio-group {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
+.kayit-form .checkbox-control--table input {
+    margin: 0;
+    width: 20px;
+    height: 20px;
 }
 
 @media (max-width: 768px) {
+
     .kayit-form .checkbox-control,
     .kayit-form .radio-control {
         grid-template-columns: auto 1fr;
@@ -341,6 +401,13 @@
     }
 }
 
+.radio-control {
+    font-size: 16px;
+    color: var(--kayit-text);
+    line-height: 1.5;
+    text-transform: none;
+}
+
 .kayit-form input[type="checkbox"],
 .kayit-form input[type="radio"] {
     appearance: none;
@@ -348,7 +415,6 @@
     height: 18px;
     width: 18px;
     border: 2px solid var(--kayit-green-400);
-    border-radius: 4px;
     display: inline-block;
     position: relative;
     background: #fff;
@@ -356,9 +422,6 @@
     flex-shrink: 0;
 }
 
-.kayit-form input[type="radio"] {
-    border-radius: 50%;
-}
 
 .kayit-form input[type="checkbox"]:checked,
 .kayit-form input[type="radio"]:checked {
@@ -417,12 +480,9 @@
 }
 
 .kayit-table thead th {
-    background-color: #cfe8dd;
-    padding: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    background-color: #ffffff;
     font-size: 12px;
-    color: #24443d;
+    color: #272727;
 }
 
 .kayit-table tbody td {
@@ -436,7 +496,6 @@
 
 .form-card--fees {
     border-top: 0;
-    border-radius: 0 0 10px 10px;
     overflow: hidden;
     padding: 0;
     background: #ffffff;
@@ -455,21 +514,19 @@
 
 .fee-table thead th {
     background: #fff;
-    color: #1f3b36;
-    border: 1px solid #1aa495;
+    color: #272727;
+    border: 1px solid #3db7a8;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 16px 12px;
+    padding: 0px 0px;
 }
 
 .fee-table thead th small {
     display: block;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0;
     text-transform: none;
-    margin-top: 4px;
-    color: #496560;
+    color: #272727;
 }
 
 .fee-table thead th:last-child {
@@ -519,42 +576,54 @@
 
 .workshop-heading {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 14px 18px;
-    border-radius: 8px 8px 0 0;
-    border: 1px solid var(--kayit-border);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 20px 28px 18px;
+    border: 2px solid #d1ad5a;
     border-bottom: 0;
     color: #4c3d07;
-    font-size: 14px;
+    background: #edcf8a;
+    box-shadow: 0 15px 30px rgba(130, 92, 18, 0.12);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     margin-bottom: 0;
 }
 
 .workshop-heading__title {
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 800;
+    font-size: 20px;
     margin: 0;
 }
 
 .workshop-heading__subtitle {
-    margin: 4px 0 0;
+    margin: 0;
     font-size: 13px;
-    color: #665b32;
+    font-weight: 500;
+    color: #574019;
+    text-transform: none;
+    letter-spacing: 0.04em;
+}
+
+.workshop-heading > div {
+    text-align: center;
 }
 
 .workshop-heading__note {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    display: inline-block;
 }
 
 .workshop-heading--experiential {
-    background: #ffe7ac;
+    background: #edcf8a;
 }
 
 .workshop-heading--clinical {
-    background: #d8e6ff;
+    background: #dce5f8;
     color: #1b325d;
 }
 
@@ -570,50 +639,208 @@
     color: #4c3d07;
 }
 
-.workshop-section + .workshop-section {
+.workshop-section+.workshop-section {
     margin-top: 32px;
 }
 
-.workshop-table--experiential thead th {
-    background: var(--kayit-yellow-200);
-    color: #5a4b07;
+.workshop-table {
+    width: 100%;
+    border: 2px solid #d5a456;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.workshop-table thead th {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    background: #f1d38a;
+    color: #59350e;
+    border-right: 1px solid #d5a456;
+    border-bottom: 2px solid #d5a456;
+    text-align: center;
+    padding: 13px 12px;
+    font-weight: 700;
+}
+
+.workshop-table thead th:last-child {
+    border-right: 0;
+    white-space: normal;
+}
+
+.workshop-table tbody td {
+    border-right: 1px solid #d5a456;
+    border-bottom: 1px solid #d5a456;
+    padding: 18px 18px;
+    font-size: 15px;
+    color: #3a2810;
+    vertical-align: middle;
+    background-color: #ffffff;
+}
+
+.workshop-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.workshop-table tbody td:first-child {
+    font-weight: 700;
+    color: #6f4307;
+    text-align: center;
+    background: linear-gradient(180deg, #f7ead0 0%, #e3c780 100%);
+    border-right: 2px solid #d5a456;
+    padding: 24px 18px;
+}
+
+.workshop-table tbody td[rowspan] {
+    padding: 26px 18px;
+}
+
+.workshop-table tbody td:nth-child(2) {
+    text-align: center;
+    font-weight: 600;
+    color: #5a431a;
+    background-color: #ffffff;
+}
+
+.workshop-table tbody td:nth-child(3),
+.workshop-table tbody td:nth-child(4) {
+    line-height: 1.5;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+.workshop-table--experiential {
+    border-color: #d5a456;
+}
+
+.workshop-table--clinical {
+    border-color: #a5b8e7;
 }
 
 .workshop-table--clinical thead th {
-    background: var(--kayit-blue-200);
-    color: #1a3666;
+    background: #dbe4fb;
+    color: #1c3564;
+    border-color: #a5b8e7;
 }
 
-.workshop-table {
-    border: 0;
+.workshop-table--clinical tbody td {
+    border-color: #a5b8e7;
+    background: #ffffff;
+}
+
+.workshop-table--clinical tbody td:first-child {
+    background: linear-gradient(180deg, #e8efff 0%, #d1dcfb 100%);
+    color: #243d73;
+}
+
+.workshop-table--clinical .checkbox-col {
+    border-left-color: #a5b8e7;
+    background: #ffffff;
+}
+
+.workshop-table .checkbox-control--table input {
+    border-color: #42b7ac;
+}
+
+.workshop-table .checkbox-control--table input:checked {
+    background: #42b7ac;
+    border-color: #42b7ac;
 }
 
 .kayit-form .checkbox-col {
-    min-width: 120px;
+    min-width: 130px;
     text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: #fffdfa;
+    border-left: 1px solid #d5a456;
 }
 
-.kayit-form .bank-card {
-    background-color: var(--kayit-yellow-50);
+.form-card--bank,
+.info-card {
+    border: none;
+    padding: 0;
+    background: transparent;
 }
 
-.kayit-form .info-card {
-    background-color: #fff6e0;
-    border: 1px solid #f0d58c;
+.card-stripe {
+    background: #f8b22a;
+    color: #52330c;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    border: 1px solid #d9981f;
+    border-bottom: 0;
+    font-size: 14px;
 }
 
-.kayit-form .bank-info {
+.card-stripe--accent {
+    background: #f6a414;
+    border-color: #de8e06;
+}
+
+.bank-card .bank-info {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 8px;
+    border: 1px solid #e0b966;
+    border-top: 0;
 }
 
-.kayit-form .bank-info strong {
-    display: inline-block;
-    width: 160px;
-    color: var(--kayit-green-500);
+.bank-card .bank-info li {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-top: 1px solid #f4dcaa;
+}
+
+.bank-card .bank-info li:first-child {
+    border-top: 0;
+}
+
+.bank-card .bank-info strong {
+    background: #f7dfa7;
+    padding: 14px 16px;
+    color: #272727;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bank-card .bank-info span {
+    padding: 14px 18px;
+    color: #3f2f10;
+    font-size: 15px;
+}
+
+.info-card .info-text {
+    border-top: 0;
+    padding: 18px 20px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #272727;
+}
+
+.kvkk-control {
+    padding: 18px 20px;
+    background: #fff;
+    border-top: 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3c3020;
+}
+
+.kvkk-control input {
+    margin-top: 4px;
 }
 
 .info-banner {
@@ -663,35 +890,82 @@
 }
 
 .payment-summary {
-    background: #f2fbf8;
-    border: 1px solid var(--kayit-green-200);
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 18px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    align-items: flex-end;
 }
 
 .payment-summary__row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    font-size: 14px;
-    color: #32524c;
+    gap: 12px;
+    font-size: 13px;
+    color: #4f4f4f;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.payment-summary__row span {
+    text-align: right;
 }
 
 .payment-summary__row strong {
+    min-width: 140px;
+    text-align: right;
     font-size: 15px;
-    color: #1f3b36;
+    color: #212121;
 }
 
 .payment-summary__row--total {
-    border-top: 1px solid var(--kayit-green-200);
-    padding-top: 10px;
-    font-size: 16px;
+    border-top: 2px solid #cfcfcf;
+    padding-top: 12px;
+    margin-top: 6px;
     font-weight: 700;
-    color: #1c3a33;
+    font-size: 14px;
+}
+
+.payment-summary__row--total strong {
+    font-size: 18px;
+    color: #0e0e0e;
+}
+
+.payment-instructions {
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.payment-instructions__item {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #3d4c73;
+    margin-bottom: 8px;
+}
+
+.payment-instructions__item:last-child {
+    margin-bottom: 0;
+}
+
+.payment-instructions__item::before {
+    content: "✱";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #4f6fbf;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.payment-instructions a {
+    color: #2746aa;
+    font-weight: 600;
 }
 
 #payment_amount[readonly] {
@@ -707,10 +981,7 @@
 }
 
 .kayit-form .kvkk-control {
-    border: 1px solid var(--kayit-border);
     padding: 16px;
-    background: var(--kayit-blue-50);
-    border-radius: 6px;
 }
 
 .kayit-form .form-actions {
