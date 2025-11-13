@@ -110,14 +110,93 @@ NOTE: This is main js file. All js plugin active & custom js included in this fi
     $targetLink.parents("li").addClass("active");
 
 /*******************
-03. jQuery MeanMenu
+03. Mobile Menu Toggle
 ********************/
-    $('.mobile-menu nav').meanmenu({
-        meanScreenWidth: "768",
-        meanMenuContainer: ".mobile-menu",
-        meanMenuOpen: '<span class="meanmenu__bar"></span><span class="meanmenu__bar"></span><span class="meanmenu__bar"></span>',
-        meanMenuClose: '<span class="meanmenu__close"></span>',
-        meanMenuCloseSize: "0"
+    var registeredMobileMenus = [];
+    var setupMobileMenuToggle = function () {
+        var menuAreas = document.querySelectorAll('.mobile-menu-area .mobile-menu');
+        if (!menuAreas.length) {
+            return;
+        }
+
+        menuAreas.forEach(function (menu) {
+            var nav = menu.querySelector('nav');
+            if (!nav) {
+                return;
+            }
+
+            if (menu.querySelector('.mobile-menu__toggle')) {
+                return;
+            }
+
+            var toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'mobile-menu__toggle';
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Mobil menüyü aç/kapat');
+            toggle.innerHTML = '<span class="mobile-menu__toggle-bar"></span><span class="mobile-menu__toggle-bar"></span><span class="mobile-menu__toggle-bar"></span>';
+            menu.insertBefore(toggle, nav);
+
+            var navHeader = document.createElement('div');
+            navHeader.className = 'mobile-menu__header';
+            var logoLink = menu.parentElement.querySelector('.logo a');
+            if (logoLink) {
+                var brandClone = logoLink.cloneNode(true);
+                brandClone.classList.add('mobile-menu__brand');
+                navHeader.appendChild(brandClone);
+            } else {
+                var brandTitle = document.createElement('span');
+                brandTitle.textContent = document.title || 'Menü';
+                brandTitle.className = 'mobile-menu__brand-text';
+                navHeader.appendChild(brandTitle);
+            }
+            var closeBtn = document.createElement('button');
+            closeBtn.type = 'button';
+            closeBtn.className = 'mobile-menu__close';
+            closeBtn.setAttribute('aria-label', 'Menüyü kapat');
+            closeBtn.textContent = 'X';
+            navHeader.appendChild(closeBtn);
+            nav.insertBefore(navHeader, nav.firstChild);
+
+            var navList = nav.querySelector('ul');
+            if (navList) {
+                navList.classList.add('mobile-menu__list');
+            }
+
+            var closeMenu = function () {
+                menu.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('is-mobile-menu-open');
+            };
+
+            toggle.addEventListener('click', function () {
+                var isOpen = menu.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                document.body.classList.toggle('is-mobile-menu-open', isOpen);
+            });
+
+            closeBtn.addEventListener('click', closeMenu);
+
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            registeredMobileMenus.push({
+                menu: menu,
+                toggle: toggle,
+                close: closeMenu
+            });
+        });
+    };
+
+    setupMobileMenuToggle();
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 767) {
+            registeredMobileMenus.forEach(function (entry) {
+                entry.close();
+            });
+        }
     });
 
 /*******************
@@ -313,6 +392,29 @@ NOTE: This is main js file. All js plugin active & custom js included in this fi
             { start: [33,229,241], stop: [235,236,117] }
         ]
     });
+
+/********************
+Document upload keyboard support
+********************/
+    var documentUploadLabels = document.querySelectorAll('.document-upload__label[for]');
+    if (documentUploadLabels.length) {
+        documentUploadLabels.forEach(function (label) {
+            label.addEventListener('keydown', function (event) {
+                if (event.key !== 'Enter' && event.key !== ' ') {
+                    return;
+                }
+                event.preventDefault();
+                var targetId = label.getAttribute('for');
+                if (!targetId) {
+                    return;
+                }
+                var targetInput = document.getElementById(targetId);
+                if (targetInput && typeof targetInput.click === 'function') {
+                    targetInput.click();
+                }
+            });
+        });
+    }
 
 /********************
 17. Preloader

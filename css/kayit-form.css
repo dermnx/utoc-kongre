@@ -229,12 +229,13 @@
 }
 
 .personal-row label {
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
 }
 
 .personal-row input {
     border: none;
+    padding-left: 1%;
     /* border-bottom: 1px solid #c7d5d2; */
     border-radius: 0;
     background: transparent;
@@ -269,6 +270,20 @@
     background-color: #b8ddd8;
     color: #1e3f3a;
     padding: 12px 26px;
+    font-size: 16px;
+    /* font-weight: 700; */
+    /* text-transform: uppercase; */
+    /* border: 1px solid #1aa495; */
+    /* border-radius: 8px 8px 0 0; */
+    letter-spacing: 0.04em;
+}
+
+.kayit-subheading-odeme span {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffb400;
+    color: #1e3f3a;
+    padding: 12px 26px;
     margin-bottom: 10px;
     font-size: 16px;
     /* font-weight: 700; */
@@ -299,8 +314,7 @@
 }
 
 .kayit-form .form-group input,
-.kayit-form .form-group textarea,
-.kayit-form .radio-control input {
+.kayit-form .form-group textarea {
     width: 100%;
     border: 1px solid var(--kayit-border);
     padding: 11px 14px;
@@ -331,13 +345,13 @@
 
 .kayit-form .checkbox-control,
 .kayit-form .radio-control {
-    
-    grid-template-columns: auto 300px 1fr;
-    gap: 10px 15px;
+    display: grid;
+    grid-template-columns: min-content 280px 1fr;
+    gap: 8px 18px;
     align-items: start;
     padding: 5px 0;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 /* .kayit-form .discount-options .checkbox-control {
@@ -351,8 +365,85 @@
 
 .kayit-form .checkbox-control input,
 .kayit-form .radio-control input {
-    width: auto;
     margin-top: 4px;
+}
+
+.kayit-form .radio-group .radio-control {
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    gap: 8px 14px;
+    padding-left: 16px;
+}
+
+.kayit-form .checkbox-control input[type="checkbox"] {
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--kayit-green-400);
+    background: #fff;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.kayit-form .checkbox-control input[type="checkbox"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 193, 186, 0.2);
+}
+
+.kayit-form .checkbox-control input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 6l3.5 3.5L14.5 0' stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.kayit-form .checkbox-control input[type="checkbox"]:checked {
+    background: var(--kayit-green-400);
+    border-color: var(--kayit-green-400);
+}
+
+.kayit-form .radio-control input[type="radio"] {
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--kayit-green-400);
+    border-radius: 4px;
+    background: #fff;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.kayit-form .radio-control input[type="radio"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 193, 186, 0.2);
+}
+
+.kayit-form .radio-control input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 6l3.5 3.5L14.5 0' stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.kayit-form .radio-control input[type="radio"]:checked {
+    background: var(--kayit-green-400);
+    border-color: var(--kayit-green-400);
+}
+
+.kayit-form .radio-control input[type="radio"]:checked::after {
+    opacity: 1;
 }
 
 .kayit-form .checkbox-control span,
@@ -364,6 +455,7 @@
     text-transform: none;
 }
 
+
 .kayit-form .checkbox-label {
     font-weight: 600;
 }
@@ -372,6 +464,18 @@
     font-weight: 400;
     font-size: 14px;
     color: #4b5351;
+}
+
+@media (max-width: 768px) {
+
+    .kayit-form .checkbox-control,
+    .kayit-form .radio-control {
+        grid-template-columns: min-content 1fr;
+    }
+
+    .kayit-form .checkbox-desc {
+        grid-column: 2 / 3;
+    }
 }
 
 .kayit-form .checkbox-control--table {
@@ -387,69 +491,6 @@
     margin: 0;
     width: 20px;
     height: 20px;
-}
-
-@media (max-width: 768px) {
-
-    .kayit-form .checkbox-control,
-    .kayit-form .radio-control {
-        grid-template-columns: auto 1fr;
-    }
-
-    .kayit-form .checkbox-desc {
-        grid-column: 2 / 3;
-    }
-}
-
-.radio-control {
-    font-size: 16px;
-    color: var(--kayit-text);
-    line-height: 1.5;
-    text-transform: none;
-}
-
-.kayit-form input[type="checkbox"],
-.kayit-form input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    height: 18px;
-    width: 18px;
-    border: 2px solid var(--kayit-green-400);
-    display: inline-block;
-    position: relative;
-    background: #fff;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-
-.kayit-form input[type="checkbox"]:checked,
-.kayit-form input[type="radio"]:checked {
-    background: var(--kayit-green-400);
-    border-color: var(--kayit-green-400);
-}
-
-.kayit-form input[type="checkbox"]:checked::after {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 4px;
-    height: 8px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-.kayit-form input[type="radio"]:checked::after {
-    content: "";
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 6px;
-    height: 6px;
-    background: #fff;
-    border-radius: 50%;
 }
 
 .kayit-form .table-scroll {
@@ -483,6 +524,12 @@
     background-color: #ffffff;
     font-size: 12px;
     color: #272727;
+    padding: 12px 10px 22px;
+}
+
+.workshop-table thead th,
+.fee-table thead th {
+    padding: 12px 10px 22px;
 }
 
 .kayit-table tbody td {
@@ -493,6 +540,7 @@
 .workshop-table tbody tr:nth-child(even) {
     background-color: #f8fbf9;
 }
+
 
 .form-card--fees {
     border-top: 0;
@@ -515,23 +563,21 @@
 .fee-table thead th {
     background: #fff;
     color: #272727;
-    border: 1px solid #3db7a8;
-    font-size: 12px;
-    font-weight: 700;
+    border: 1px solid rgba(26, 164, 149, 0.4);
+    font-size: 14px;
+    font-weight: 600;
     padding: 0px 0px;
 }
 
 .fee-table thead th small {
     display: block;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: 400;
     letter-spacing: 0;
     text-transform: none;
     color: #272727;
 }
 
-.fee-table thead th:last-child {
-    border-right: 0;
-}
 
 .fee-table thead th:first-child,
 .fee-table tbody td:first-child {
@@ -540,8 +586,7 @@
 
 .fee-table tbody td {
     border-right: 1px solid rgba(26, 164, 149, 0.4);
-    border-top: 3px solid #ffffff;
-    padding: 16px 12px;
+    border-top: 5px solid #ffffff;
     font-size: 15px;
 }
 
@@ -582,14 +627,13 @@
     text-align: center;
     gap: 6px;
     padding: 20px 28px 18px;
-    border: 2px solid #d1ad5a;
     border-bottom: 0;
     color: #4c3d07;
-    background: #edcf8a;
+    background: #f4de87;
     box-shadow: 0 15px 30px rgba(130, 92, 18, 0.12);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .workshop-heading__title {
@@ -620,6 +664,7 @@
 
 .workshop-heading--experiential {
     background: #edcf8a;
+    margin-top: 10px;
 }
 
 .workshop-heading--clinical {
@@ -645,7 +690,7 @@
 
 .workshop-table {
     width: 100%;
-    border: 2px solid #d5a456;
+    border: 0px solid #d29e2e;
     border-collapse: separate;
     border-spacing: 0;
     background: #fff;
@@ -654,13 +699,13 @@
 .workshop-table thead th {
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    font-size: 12px;
+    font-size: 16px;
     background: #f1d38a;
     color: #59350e;
     border-right: 1px solid #d5a456;
     border-bottom: 2px solid #d5a456;
     text-align: center;
-    padding: 13px 12px;
+    padding: 0px 0px;
     font-weight: 700;
 }
 
@@ -683,32 +728,15 @@
     border-bottom: 0;
 }
 
-.workshop-table tbody td:first-child {
-    font-weight: 700;
-    color: #6f4307;
-    text-align: center;
-    background: linear-gradient(180deg, #f7ead0 0%, #e3c780 100%);
-    border-right: 2px solid #d5a456;
-    padding: 24px 18px;
-}
-
 .workshop-table tbody td[rowspan] {
     padding: 26px 18px;
 }
 
-.workshop-table tbody td:nth-child(2) {
-    text-align: center;
-    font-weight: 600;
-    color: #5a431a;
-    background-color: #ffffff;
+.workshop-table thead th:nth-child(2) {
+    width: 170px;
 }
 
-.workshop-table tbody td:nth-child(3),
-.workshop-table tbody td:nth-child(4) {
-    line-height: 1.5;
-    text-align: left;
-    background-color: #ffffff;
-}
+
 
 .workshop-table--experiential {
     border-color: #d5a456;
@@ -727,13 +755,8 @@
 .workshop-table--clinical tbody td {
     border-color: #a5b8e7;
     background: #ffffff;
+    text-align: center;
 }
-
-.workshop-table--clinical tbody td:first-child {
-    background: linear-gradient(180deg, #e8efff 0%, #d1dcfb 100%);
-    color: #243d73;
-}
-
 .workshop-table--clinical .checkbox-col {
     border-left-color: #a5b8e7;
     background: #ffffff;
@@ -752,12 +775,223 @@
     min-width: 130px;
     text-align: center;
     vertical-align: middle;
-    display: flex;
+    justify-content: center;
+    align-items: center;
     justify-content: center;
     align-items: center;
     padding: 0;
     background: #fffdfa;
-    border-left: 1px solid #d5a456;
+}
+
+.workshop-table--clinical tbody tr:nth-child(even) .checkbox-col {
+    background: #ffffff;
+    border-left-color: #a5b8e7;
+}
+
+.workshop-table .checkbox-control--table input {
+    border-color: #42b7ac;
+}
+
+.workshop-table .checkbox-control--table input:checked {
+    background: #42b7ac;
+    border-color: #42b7ac;
+}
+
+.workshop-table--clinical .checkbox-col {
+    border-left-color: #a5b8e7;
+    background: #ffffff;
+}
+
+
+.workshop-table--clinical tbody td {
+    border-color: #a5b8e7;
+    background: #ffffff;
+}
+
+.workshop-table--clinical thead th {
+    background: #dbe4fb;
+    color: #1c3564;
+    border-color: #a5b8e7;
+}
+
+.workshop-table--clinical {
+    border-color: #a5b8e7;
+}
+
+.workshop-table--experiential {
+    border-color: #d5a456;
+}
+
+
+.workshop-table tbody td[rowspan] {
+    padding: 26px 18px;
+}
+
+
+
+
+.workshop-table tbody td {
+    border-right: 1px solid #d5a456;
+    border-bottom: 1px solid #d5a456;
+    padding: 10px 5px;
+    font-size: 15px;
+    color: #3a2810;
+    vertical-align: middle;
+    background-color: #ffffff;
+}
+
+.workshop-table thead th:last-child {
+    border-right: 0;
+    white-space: normal;
+}
+
+.workshop-table thead th {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    background: #f1d38a;
+    color: #59350e;
+    border-right: 1px solid #e5c684;
+    border-bottom: 2px solid #e5c684;
+    text-align: center;
+    padding: 0px 0px;
+    font-weight: 700;
+}
+
+.workshop-table--clinical thead th {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    background: #bed1ef;
+    color: #59350e;
+    border-right: 1px solid #8fb4ef;
+    border-bottom: 2px solid #8fb4ef;
+    text-align: center;
+    padding: 0px 0px;
+    font-weight: 700;
+}
+
+.workshop-table {
+    width: 100%;
+    border: 0px solid #d29e2e;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.workshop-section+.workshop-section {
+    margin-top: 32px;
+}
+
+@media (max-width: 767px) {
+    .workshop-section .table-scroll {
+        border: none;
+        border-radius: 0;
+    }
+
+    .workshop-table {
+        border: none;
+        border-spacing: 0;
+    }
+
+    .workshop-table thead {
+        display: none;
+    }
+
+    .workshop-table tbody {
+        display: block;
+    }
+
+    .workshop-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #d5a456;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fffdf8;
+        margin-bottom: 20px;
+        box-shadow: 0 12px 28px rgba(92, 63, 21, 0.08);
+    }
+
+    .workshop-table--clinical tbody tr {
+        border-color: #a5b8e7;
+        background: #fdfdff;
+        box-shadow: 0 12px 28px rgba(38, 63, 120, 0.08);
+    }
+
+    .workshop-table tbody td,
+    .workshop-table tbody td:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 14px 16px;
+    }
+
+    .workshop-table tbody td:first-child {
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 0;
+        background: linear-gradient(180deg, #f7ead0 0%, #e3c780 100%);
+    }
+
+
+
+    .workshop-table tbody td::before {
+        content: "";
+        flex: 0 0 45%;
+        text-align: left;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #7b6642;
+        padding-right: 10px;
+    }
+
+    .workshop-table tbody td:nth-child(2)::before {
+        content: "Saat";
+    }
+
+    .workshop-table tbody td:nth-child(3)::before {
+        content: "Konu / Atölye";
+    }
+
+    .workshop-table tbody td:nth-child(4)::before {
+        content: "Eğitmen";
+    }
+
+    .workshop-table tbody td:first-child::before {
+        content: "";
+        display: none;
+    }
+
+    .workshop-table tbody td.checkbox-col {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .workshop-table tbody td.checkbox-col::before {
+        content: "Kayıt";
+    }
+
+    .workshop-table .checkbox-control--table {
+        width: auto;
+        padding-right: 4px;
+    }
+
+    .workshop-table .checkbox-control--table input {
+        width: 22px;
+        height: 22px;
+    }
+
+    .kayit-form .checkbox-col {
+        justify-content: flex-end;
+        border-left: none;
+        background: transparent;
+    }
 }
 
 .form-card--bank,
@@ -789,7 +1023,6 @@
     margin: 0;
     padding: 0;
     border: 1px solid #e0b966;
-    border-top: 0;
 }
 
 .bank-card .bank-info li {
@@ -815,6 +1048,8 @@
     padding: 14px 18px;
     color: #3f2f10;
     font-size: 15px;
+    font-weight: 400
+    ;
 }
 
 .info-card .info-text {
@@ -923,9 +1158,6 @@
 }
 
 .payment-summary__row--total {
-    border-top: 2px solid #cfcfcf;
-    padding-top: 12px;
-    margin-top: 6px;
     font-weight: 700;
     font-size: 14px;
 }

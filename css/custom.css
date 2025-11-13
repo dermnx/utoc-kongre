@@ -26,24 +26,61 @@
 }
 
 .partners-area .partner-logo img {
-    max-height: 80px;
+    max-height: var(--logo-height, 90px);
     width: auto;
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    transition: transform 0.2s;
 }
 
-.partner-logo--xl img { max-height: 120px; }
-.partner-logo--lg img { max-height: 100px; }
-.partner-logo--md img { max-height: 80px; }
-.partner-logo--sm img { max-height: 60px; }
-.partner-logo--xs img { max-height: 48px; }
+.partners-area .partner-logo img:hover {
+    transform: scale(1.03);
+}
 
 .partners-area .cols-gutter {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 70px;
+}
+
+.hero-video-cta {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-video-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 38px;
+    color: #ffffff;
+    background-color: #2ec1ba;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video-cta__btn:hover,
+.hero-video-cta__btn:focus {
+    background-color: #28a99f;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transform: translateY(-1px);
+    color: #ffffff;
+}
+
+.about-content__signature {
+    margin-top: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #1d2c3b;
+    line-height: 1.5;
 }
 
 @media (max-width: 991px) {
@@ -57,13 +94,8 @@
     }
 
     .partners-area .partner-logo img {
-        max-height: 60px;
+        max-height: calc(var(--logo-height, 90px) * 0.8);
     }
-    .partner-logo--xl img { max-height: 100px; }
-    .partner-logo--lg img { max-height: 80px; }
-    .partner-logo--md img { max-height: 65px; }
-    .partner-logo--sm img { max-height: 50px; }
-    .partner-logo--xs img { max-height: 40px; }
     .partners-area .cols-gutter {
         gap: 30px;
     }
@@ -71,23 +103,24 @@
 
 @media (max-width: 767px) {
     .partners-area .partner-logo img {
-        max-height: 50px;
+        max-height: calc(var(--logo-height, 90px) * 0.65);
     }
 
-    .partner-logo--xl img { max-height: 80px; }
-    .partner-logo--lg img { max-height: 68px; }
-    .partner-logo--md img { max-height: 54px; }
-    .partner-logo--sm img { max-height: 44px; }
-    .partner-logo--xs img { max-height: 36px; }
-
     .partners-area .partners-grid {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         gap: 18px;
     }
 
     .partners-area .partners-grid > [class*="col-"] {
-        flex: 1 1 100%;
-        max-width: 320px;
+        flex: 0 1 calc(50% - 12px);
+        max-width: 180px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .partners-area .partner-logo {
+        padding: 6px 10px;
     }
 }
 
@@ -165,6 +198,18 @@
         width: 100%;
     }
 
+    .hero-video-cta {
+        margin-top: 32px;
+        padding: 0 10px;
+    }
+
+    .hero-video-cta__btn {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+    }
+
     .hero-countdown__timer .cdown {
         display: flex;
         flex-direction: column;
@@ -196,7 +241,7 @@
     .partners-area .container > .row > [class*="col-"] {
         float: none;
         width: 100%;
-        max-width: 100%;
+        max-width: 540px;
         padding-left: 0;
         padding-right: 0;
         display: flex;
@@ -227,6 +272,16 @@
     .speakers.owl-carousel .single-speaker {
         margin: 0 auto;
         max-width: 320px;
+    }
+
+    .speakers-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+    }
+
+    .speaker-card__name {
+        font-size: 12px;
+        letter-spacing: 0.08em;
     }
 
     .price-area .price-tables {
@@ -482,6 +537,67 @@
 
     .section-title h2 {
         font-size: 20px;
+    }
+}
+
+/*----------------------------------------
+  Contact area enhancements
+-----------------------------------------*/
+.contact-area .map-embed {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 140px);
+    min-height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d9f0e8, #c5e4da);
+    box-shadow: 0 18px 35px rgba(26, 64, 56, 0.16);
+}
+.contact-area .map-embed #google-Map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100% !important;
+}
+.contact-area .address {
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(26, 64, 56, 0.12);
+    border: 1px solid rgba(45, 124, 105, 0.2);
+}
+.style-changer {
+    z-index: 9;
+}
+
+@media (max-width: 991px) {
+    .contact-area .map-embed {
+        height: 420px;
+    }
+    .contact-area .address {
+        left: auto;
+        right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .style-changer {
+        display: none;
+    }
+    .contact-area {
+        padding: 0 15px 40px;
+    }
+    .contact-area .map-embed {
+        height: 320px;
+        border-radius: 12px;
+    }
+    .contact-area .address {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 24px 0 0;
+        box-shadow: 0 10px 28px rgba(19, 54, 50, 0.14);
+    }
+    .contact-area .contact-form-btn button {
+        width: 100%;
     }
 }
 
@@ -815,7 +931,9 @@
 
 @media (max-width: 767px) {
     .committee-container {
-        margin: 0 0 50px;
+        margin: 0 auto 50px;
+        padding: 0 16px;
+        max-width: 480px;
     }
 
     .conference-summary {
@@ -837,12 +955,41 @@
         display: none;
     }
 
-    .committee-info-table td {
+    .committee-info-table {
+        border: none;
+        background: transparent;
+    }
+
+    .committee-info-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .committee-info-table tr {
+        display: block;
+        border-radius: 18px;
+        border: 1px solid rgba(34, 58, 74, 0.06);
+        background: #ffffff;
         padding: 22px 18px;
+        box-shadow: 0 8px 18px rgba(10, 34, 28, 0.08);
+    }
+
+    .committee-info-table tr + tr td {
+        border-top: none !important;
+    }
+
+    .committee-info-table td {
+        padding: 0;
+        text-align: center;
+        background: transparent;
     }
 
     .committee-info__title {
-        font-size: 14px;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+        text-align: center;
+        margin-bottom: 8px;
     }
 
     .committee-info__text,
@@ -957,7 +1104,6 @@
     flex-wrap: wrap;
     max-width: 940px;
     margin: 0 auto;
-    padding: 0 48px;
 }
 
 .invitation-logo {
@@ -978,7 +1124,7 @@
 }
 
 .invitation-logo--whr img {
-    height: 82px;
+    height: 90px;
 }
 
 .invitation-logo--bau img {
@@ -1206,6 +1352,22 @@
     gap: 2px;
 }
 
+.speaker-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+}
+
+.speaker-card__link:focus-visible {
+    outline: 2px solid #2ec1ba;
+    outline-offset: 4px;
+}
+
 .speaker-card__image {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -1219,6 +1381,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.speaker-card__link:hover .speaker-card__image img,
+.speaker-card__link:focus-visible .speaker-card__image img {
+    transform: scale(1.02);
 }
 
 .speaker-card__name {
@@ -1326,12 +1494,7 @@
     }
 }
 
-@media (max-width: 520px) {
-    .speaker-grid,
-    .speaker-grid--carousel {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 @media (max-width: 520px) {
     .invitation-logos-row {
@@ -1399,6 +1562,46 @@
     flex-basis: 100%;
 }
 
+.workshop-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 35px;
+    justify-content: center;
+}
+
+.workshop-info-card {
+    color: #ffffff;
+    flex: 1 1 300px;
+    max-width: 360px;
+    background: #433e38;
+    opacity: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 34px 28px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.workshop-info-card h3 {
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.workshop-info-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.workshop-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 991px) {
     .price-area .price-tables {
         flex-direction: column;
@@ -1415,6 +1618,15 @@
         flex-basis: auto;
         width: auto;
         margin-top: 20px;
+    }
+
+    .workshop-info-row {
+        gap: 20px;
+    }
+
+    .workshop-info-card {
+        max-width: none;
+        padding: 28px 24px;
     }
 }
 
@@ -1438,7 +1650,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(90deg, rgba(7, 11, 17, 0.95), rgba(7, 11, 17, 0.78)), url("../img/bg/3.jpg");
+    background-image: url("../img/kayit-bg.png");
     background-size: cover;
     background-position: center;
     z-index: 0;
@@ -1535,6 +1747,15 @@
 }
 
 @media (max-width: 640px) {
+
+    .workshop-info-card {
+        padding: 22px 20px;
+    }
+
+    .workshop-info-card h3 {
+        letter-spacing: 0.12em;
+    }
+
     #pricing.price-area .section-title h2 {
         letter-spacing: 0.2em;
         font-size: 20px;
@@ -1550,6 +1771,14 @@
     #pricing.price-area .price-tables > a.button-hover {
         letter-spacing: 0.18em;
         width: 100%;
+    }
+
+    .workshop-info-row {
+        flex-direction: column;
+    }
+
+    .workshop-info-card {
+        padding: 22px 18px;
     }
 }
 
@@ -1577,7 +1806,7 @@
     color: #111111;
     margin: 0 auto;
     width: 100%;
-    max-width: 960px;
+    max-width: 1080px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1599,7 +1828,7 @@
     color: #111111;
     text-align: left;
     width: 100%;
-    max-width: 760px;
+    max-width: 860px;
 }
 
 .registration-fees__emphasis {
@@ -1609,7 +1838,7 @@
     color: #111111;
     text-align: left;
     width: 100%;
-    max-width: 760px;
+    max-width: 860px;
 }
 
 .registration-fees__emphasis a {
