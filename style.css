@@ -97,8 +97,10 @@ button.button-hover {
 }
 a.button-hover.button-small,
 button.button-hover.button-small {
-    padding: 5px 10px;
-    font-size: 12px;
+    font-size: 15px;
+    color: #3cbeac;
+    border-color: #ffffff;
+
 }
 .links {
     position: relative;

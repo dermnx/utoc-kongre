@@ -53,18 +53,18 @@
 
 .kayit-form-area {
     background-color: #ffffff;
-    padding: 180px 0 100px;
+    padding: 140px 0 90px;
 }
 
-/* .kayit-sheet {
+.kayit-sheet {
     background: #fff;
-    border: 1px solid var(--kayit-border);
-    border-radius: 12px;
+    border: 0px solid rgba(61, 183, 168, 0.2);
+    border-radius: 24px;
     max-width: 980px;
     margin: 0 auto;
-    padding: 45px 50px;
-    box-shadow: 0 18px 45px rgba(34, 60, 55, 0.1);
-} */
+}
+
+
 
 .form-header {
     background: var(--kayit-green-50);
@@ -105,9 +105,8 @@
     padding: 0;
     background: transparent;
     box-shadow: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
+    border: none;
+    border-radius: 0;
 }
 
 
@@ -498,9 +497,8 @@
 }
 
 .workshop-section .table-scroll {
-    border: 1px solid var(--kayit-border);
+    border: 1px solid #d29e2e;
     border-top: 0;
-    border-radius: 0 0 8px 8px;
     overflow: hidden;
 }
 
@@ -702,7 +700,6 @@
     font-size: 16px;
     background: #f1d38a;
     color: #59350e;
-    border-right: 1px solid #d5a456;
     border-bottom: 2px solid #d5a456;
     text-align: center;
     padding: 0px 0px;
@@ -715,21 +712,11 @@
 }
 
 .workshop-table tbody td {
-    border-right: 1px solid #d5a456;
-    border-bottom: 1px solid #d5a456;
     padding: 18px 18px;
     font-size: 15px;
-    color: #3a2810;
+    color: #272727;
     vertical-align: middle;
     background-color: #ffffff;
-}
-
-.workshop-table tbody tr:last-child td {
-    border-bottom: 0;
-}
-
-.workshop-table tbody td[rowspan] {
-    padding: 26px 18px;
 }
 
 .workshop-table thead th:nth-child(2) {
@@ -737,28 +724,43 @@
 }
 
 
-
 .workshop-table--experiential {
     border-color: #d5a456;
 }
 
+.workshop-table--experiential tbody td {
+    border-right: 1px solid #d5a456;
+    border-bottom: 1px solid #d5a456;
+}
+
+.workshop-table--experiential tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.workshop-table--experiential tbody td[rowspan] {
+    padding: 26px 18px;
+    border-right: 1px solid #d5a456;
+}
+
 .workshop-table--clinical {
-    border-color: #a5b8e7;
+    border-color: #8fb4ef;
 }
 
 .workshop-table--clinical thead th {
-    background: #dbe4fb;
+    background: #bed1ef;
     color: #1c3564;
-    border-color: #a5b8e7;
+    border-right: 1px solid #8fb4ef;
+    border-bottom: 2px solid #8fb4ef;
 }
 
 .workshop-table--clinical tbody td {
-    border-color: #a5b8e7;
+    border-right: 1px solid #8fb4ef;
+    border-bottom: 1px solid #8fb4ef;
     background: #ffffff;
     text-align: center;
 }
 .workshop-table--clinical .checkbox-col {
-    border-left-color: #a5b8e7;
+    border-left-color: #8fb4ef;
     background: #ffffff;
 }
 
@@ -770,6 +772,41 @@
     background: #42b7ac;
     border-color: #42b7ac;
 }
+
+/* Clinical workshop table overrides */
+.workshop-table--clinical {
+    border: 1px solid #8fb4ef;
+}
+
+.workshop-table--clinical thead th {
+    background: #bed1ef;
+    color: #1c3564;
+    border-right: 1px solid #8fb4ef;
+    border-bottom: 2px solid #8fb4ef;
+}
+
+.workshop-table--clinical tbody td {
+    border-right: 1px solid #8fb4ef;
+    border-bottom: 1px solid #8fb4ef;
+    background: #ffffff;
+    color: #1f2a3f;
+}
+
+.workshop-table--clinical tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.workshop-table--clinical tbody td[rowspan] {
+    background: #eef3ff;
+    font-weight: 600;
+}
+
+.workshop-table--clinical .checkbox-col {
+    border-left: 1px solid #8fb4ef;
+    background: #ffffff;
+}
+
+ 
 
 .kayit-form .checkbox-col {
     min-width: 130px;
@@ -785,43 +822,8 @@
 
 .workshop-table--clinical tbody tr:nth-child(even) .checkbox-col {
     background: #ffffff;
-    border-left-color: #a5b8e7;
+    border-left-color: #8fb4ef;
 }
-
-.workshop-table .checkbox-control--table input {
-    border-color: #42b7ac;
-}
-
-.workshop-table .checkbox-control--table input:checked {
-    background: #42b7ac;
-    border-color: #42b7ac;
-}
-
-.workshop-table--clinical .checkbox-col {
-    border-left-color: #a5b8e7;
-    background: #ffffff;
-}
-
-
-.workshop-table--clinical tbody td {
-    border-color: #a5b8e7;
-    background: #ffffff;
-}
-
-.workshop-table--clinical thead th {
-    background: #dbe4fb;
-    color: #1c3564;
-    border-color: #a5b8e7;
-}
-
-.workshop-table--clinical {
-    border-color: #a5b8e7;
-}
-
-.workshop-table--experiential {
-    border-color: #d5a456;
-}
-
 
 .workshop-table tbody td[rowspan] {
     padding: 26px 18px;
@@ -831,7 +833,6 @@
 
 
 .workshop-table tbody td {
-    border-right: 1px solid #d5a456;
     border-bottom: 1px solid #d5a456;
     padding: 10px 5px;
     font-size: 15px;
@@ -859,16 +860,10 @@
 }
 
 .workshop-table--clinical thead th {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 12px;
     background: #bed1ef;
-    color: #59350e;
+    color: #1c3564;
     border-right: 1px solid #8fb4ef;
     border-bottom: 2px solid #8fb4ef;
-    text-align: center;
-    padding: 0px 0px;
-    font-weight: 700;
 }
 
 .workshop-table {
@@ -878,6 +873,15 @@
     border-spacing: 0;
     background: #fff;
 }
+
+.table-scroll--clinical{
+    border: 1px solid #8fb4ef;
+    border-top: 0;
+    overflow: hidden;
+}
+
+
+
 
 .workshop-section+.workshop-section {
     margin-top: 32px;
@@ -905,86 +909,126 @@
     .workshop-table tbody tr {
         display: flex;
         flex-direction: column;
-        border: 1px solid #d5a456;
-        border-radius: 14px;
+        border: 1px solid rgba(165, 125, 58, 0.18);
+        border-radius: 10px;
         overflow: hidden;
-        background: #fffdf8;
-        margin-bottom: 20px;
-        box-shadow: 0 12px 28px rgba(92, 63, 21, 0.08);
+        background: #fffefb;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 10px rgba(96, 73, 28, 0.06);
     }
 
     .workshop-table--clinical tbody tr {
-        border-color: #a5b8e7;
-        background: #fdfdff;
-        box-shadow: 0 12px 28px rgba(38, 63, 120, 0.08);
+        border-color: rgba(123, 150, 205, 0.28);
+        background: #fbfdff;
+        box-shadow: 0 4px 10px rgba(45, 74, 135, 0.06);
     }
 
-    .workshop-table tbody td,
-    .workshop-table tbody td:first-child {
+    .workshop-table tbody td {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        text-align: center;
         border-right: 0;
         border-left: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        padding: 14px 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        padding: 12px;
+        gap: 6px;
+        font-size: 13px;
+        width: 100%;
+        word-break: keep-all;
     }
 
-    .workshop-table tbody td:first-child {
-        flex-direction: column;
-        text-align: center;
-        border-bottom: 0;
-        background: linear-gradient(180deg, #f7ead0 0%, #e3c780 100%);
+    .workshop-table--clinical tbody td {
+        border-bottom: 1px solid #8fb4ef;
     }
 
+    .workshop-table tbody tr {
+        position: relative;
+    }
 
-
-    .workshop-table tbody td::before {
-        content: "";
-        flex: 0 0 45%;
-        text-align: left;
-        font-size: 11px;
+    .workshop-table tbody tr::before {
+        content: attr(data-date);
+        display: none;
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(180deg, #f8f1e2 0%, #f3e3c2 100%);
+        color: #3b2c0d;
         font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #7b6642;
-        padding-right: 10px;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        text-align: center;
     }
 
-    .workshop-table tbody td:nth-child(2)::before {
-        content: "Saat";
+    .workshop-table tbody tr[data-date]::before {
+        display: block;
     }
 
-    .workshop-table tbody td:nth-child(3)::before {
-        content: "Konu / Atölye";
+    .workshop-table--clinical tbody tr::before {
+        background: linear-gradient(180deg, #eff4ff 0%, #d5e2ff 100%);
+        color: #1c3564;
+        border-bottom: 1px solid #8fb4ef;
     }
 
-    .workshop-table tbody td:nth-child(4)::before {
-        content: "Eğitmen";
-    }
-
-    .workshop-table tbody td:first-child::before {
-        content: "";
+    .workshop-table tbody .workshop-date-cell,
+    .workshop-table tbody .workshop-day-gap {
         display: none;
     }
 
+    .workshop-table tbody td::before {
+        content: attr(data-label);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #8a7343;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+    }
+
+    .workshop-table tbody td:nth-child(2)::before { content: "Saat"; }
+    .workshop-table tbody td:nth-child(3)::before { content: "Konu / Atölye"; }
+    .workshop-table tbody td:nth-child(4)::before { content: "Eğitmen"; }
+
+    .workshop-table tbody td:nth-child(3),
+    .workshop-table tbody td:nth-child(4) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .workshop-table tbody td:nth-child(3),
+    .workshop-table tbody td:nth-child(4) {
+        white-space: normal;
+        text-overflow: clip;
+    }
+
     .workshop-table tbody td.checkbox-col {
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        flex-direction: row;
+        gap: 10px;
     }
 
     .workshop-table tbody td.checkbox-col::before {
         content: "Kayıt";
+        flex: 0 0 auto;
     }
 
     .workshop-table .checkbox-control--table {
         width: auto;
-        padding-right: 4px;
+        padding-right: 0;
+        justify-content: flex-start;
     }
 
     .workshop-table .checkbox-control--table input {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #3db7a8;
+        border-radius: 6px;
+        box-shadow: 0 0 0 2px rgba(61, 183, 168, 0.15);
     }
 
     .kayit-form .checkbox-col {
@@ -1028,7 +1072,7 @@
 .bank-card .bank-info li {
     display: grid;
     grid-template-columns: 180px 1fr;
-    border-top: 1px solid #f4dcaa;
+    border-top: 1px solid #ffd777;
 }
 
 .bank-card .bank-info li:first-child {
@@ -1039,7 +1083,7 @@
     background: #f7dfa7;
     padding: 14px 16px;
     color: #272727;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -1054,7 +1098,9 @@
 
 .info-card .info-text {
     border-top: 0;
-    padding: 18px 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 20px;
     background: #fff;
     font-size: 15px;
     font-weight: 400;
@@ -1252,8 +1298,17 @@
 }
 
 @media (max-width: 991px) {
+    .kayit-form-area {
+        padding: 110px 0 70px;
+    }
+
     .kayit-sheet {
-        padding: 35px 24px;
+        padding: 36px 28px;
+        border-radius: 18px;
+    }
+
+    .kayit-form .form-card {
+        padding: 24px 22px;
     }
 }
 
@@ -1266,8 +1321,32 @@
         font-size: 22px;
     }
 
+    .kayit-form-area {
+        padding: 110px 0 60px;
+    }
+
+    .kayit-sheet {
+        padding: 24px 18px;
+        border: none;
+        box-shadow: none;
+    }
+
     .kayit-form .form-card {
-        padding: 22px 18px;
+        padding: 18px 16px;
+        border-radius: 14px;
+        box-shadow: 0 12px 24px rgba(7, 29, 24, 0.08);
+    }
+
+    .kayit-heading span {
+        font-size: 16px;
+        letter-spacing: 0.14em;
+        padding: 12px 14px;
+    }
+
+    .kayit-subheading span,
+    .kayit-subheading-odeme span {
+        font-size: 14px;
+        padding: 10px 14px;
     }
 
     .personal-row {
@@ -1284,7 +1363,270 @@
         margin-right: 6px;
     }
 
+    .kayit-form .discount-options {
+        padding-left: 0;
+    }
+
     .kayit-form .radio-group {
         flex-direction: column;
+    }
+
+    .payment-summary {
+        padding: 16px;
+        border-radius: 12px;
+        background: #f7fbfa;
+        border: 1px solid rgba(61, 183, 168, 0.25);
+        align-items: stretch;
+    }
+
+    .payment-summary__row {
+        justify-content: space-between;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .payment-summary__row span,
+    .payment-summary__row strong {
+        text-align: left;
+    }
+
+    .form-card--fees .table-scroll {
+        border-radius: 18px;
+        border: none;
+    }
+
+    .fee-table {
+        border: none;
+    }
+
+    .fee-table thead {
+        display: none;
+    }
+
+    .fee-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .fee-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(61, 183, 168, 0.3);
+        box-shadow: 0 12px 28px rgba(10, 45, 37, 0.1);
+        background: #ffffff;
+    }
+
+    .fee-row--green td,
+    .fee-row--yellow td,
+    .fee-row--blue td {
+        background: transparent;
+        border-bottom: none;
+    }
+
+    .fee-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        font-size: 14px;
+        color: #2d3b38;
+    }
+
+    .fee-table tbody td:first-child {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 15px;
+        font-weight: 700;
+        color: #1f3d36;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .fee-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .fee-table tbody td::before {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #6b7a76;
+        margin-right: 12px;
+        content: "";
+    }
+
+    .fee-table tbody td:first-child::before {
+        display: none;
+    }
+
+    .fee-table tbody td:nth-child(2)::before {
+        content: "Süre";
+    }
+
+    .fee-table tbody td:nth-child(3)::before {
+        content: "Normal Ücret";
+    }
+
+    .fee-table tbody td:nth-child(4)::before {
+        content: "Erken Kayıt %10";
+    }
+
+    .fee-table tbody td:nth-child(5)::before {
+        content: "Öğrenci %10";
+    }
+
+    .fee-table tbody td:nth-child(6)::before {
+        content: "WHR Sertifika %10";
+    }
+
+    .bank-card .bank-info {
+        border-radius: 16px;
+    }
+
+    .bank-card .bank-info li {
+        grid-template-columns: 1fr;
+    }
+
+    .bank-card .bank-info strong {
+        border-bottom: 1px solid #f6e8c3;
+    }
+
+    .kvkk-control {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .kayit-page {
+        background: linear-gradient(180deg, #f0f7f4 0%, #fefefe 65%, #edf5f2 100%);
+    }
+
+    .kayit-sheet {
+        padding: 10px 0 30px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .kayit-form {
+        gap: 16px;
+    }
+
+    .kayit-form .form-card {
+        border: none;
+        border-left: 5px solid rgba(74, 159, 135, 0.7);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.96);
+        padding: 18px 16px 20px;
+        box-shadow: 0 18px 28px rgba(15, 54, 44, 0.08);
+    }
+
+    .form-card--fees,
+    .form-card--bank,
+    .form-card--payment {
+        border-left: none;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .kayit-heading span {
+        border-radius: 18px;
+        background: rgba(61, 183, 168, 0.15);
+        color: #1a4137;
+    }
+
+    .kayit-subheading span,
+    .kayit-subheading-odeme span {
+        border-radius: 999px;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(46, 140, 130, 0.1);
+        color: #204944;
+        border: 1px solid rgba(46, 140, 130, 0.25);
+    }
+
+    .document-upload {
+        gap: 12px;
+        border-radius: 16px;
+        padding: 14px;
+        background: rgba(233, 244, 240, 0.8);
+    }
+
+    .document-upload__label {
+        border-radius: 12px;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .document-upload__actions {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .kayit-form .discount-options .checkbox-control {
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        padding: 14px 16px;
+        background: #fff;
+        box-shadow: 0 6px 14px rgba(18, 46, 40, 0.08);
+        grid-template-columns: min-content 1fr;
+    }
+
+    .payment-summary {
+        border-radius: 16px;
+        border: 1px solid rgba(74, 159, 135, 0.25);
+        background: #f9fdfb;
+        padding: 16px;
+    }
+
+    .payment-summary__row strong {
+        font-size: 14px;
+    }
+
+    .workshop-heading {
+        border-radius: 16px 16px 0 0;
+        margin-bottom: 0;
+        background: #f0deaf;
+        padding-bottom: 14px;
+    }
+
+    .workshop-section .table-scroll {
+        border-radius: 0 0 16px 16px;
+        overflow: hidden;
+        border: 1px solid rgba(165, 125, 58, 0.2);
+        border-top: 0;
+    }
+
+    .workshop-section+.workshop-section {
+        margin-top: 26px;
+    }
+
+    .kvkk-control {
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 14px;
+    }
+
+    .kayit-form .form-actions {
+        position: sticky;
+        bottom: 18px;
+        z-index: 5;
+        padding: 12px 12px 0;
+    }
+
+    .kayit-submit {
+        width: 100%;
+        border-radius: 999px;
+        font-size: 13px;
+        letter-spacing: 0.3em;
+        box-shadow: 0 18px 30px rgba(45, 124, 105, 0.24);
     }
 }

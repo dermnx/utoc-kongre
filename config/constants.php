@@ -1,0 +1,47 @@
+<?php
+return [
+    'workshops' => [
+        'denge-sembolum' => ['title' => 'Denge Sembolüm İntermodel Deneyim Atölyesi', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
+        'travma-bilgili-hareket' => ['title' => 'Travma Bilgili Hareket', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
+        'hukuki-mekanizmalar' => ['title' => 'Kadına Yönelik Şiddetle Mücadelede Hukuki Mücadele Mekanizmaları', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
+        'somatik-deneyimleme' => ['title' => 'Somatik Deneyimleme Yaklaşımı ile Travma Önleme: Esnek Dayanıklılık', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
+        'hayat-agaci' => ['title' => 'Hayat Ağacı ve Güç Draması', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
+        'muzikle-deneyim' => ['title' => 'Bilinmeyenle Karşılaşmak - Müzikle Deneyim Atölyesi', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
+        'bir-veda' => ['title' => 'Bir Veda Bir Merhaba: Dans / Hareket Deneyim Atölyesi', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
+        'yaradan-yarati' => ['title' => 'Yaradan Yaratıma Dönüşüm Yolculuğu', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
+        'ebru-deneyim' => ['title' => 'Ebru Teknesinde Taşımak, Kapsamak, Dönüştürmek', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
+        'muzikal-kopru' => ['title' => 'Müzikal Köprü: Müzikle Deneyim Atölyesi', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
+        'tbdt' => ['title' => 'Travma Odaklı BDT: Klinik Müdahaleler', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
+        'afetlerde-bedensel' => ['title' => 'Afetlerde Beden Odaklı Uygulamalar', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
+        'kayıp-yas' => ['title' => 'Kayıp ve Yas Terapisi', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
+        'aciya-yakin' => ['title' => 'Acıya Yakın Olmak: Dolaylı Travma', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
+        'orgutsel-travma' => ['title' => 'Örgütsel Travmaların İzlenmesi ve Önlenmesi', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
+        'belirti-azaltim' => ['title' => 'Belirti Azaltımının Ötesinde İyileşmeyi Kolaylaştırmak', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
+        'savas-magduru' => ['title' => 'Savaş Mağduru Toplumlarda Travmayla Klinik Çalışmalar', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
+        'alyans-model' => ['title' => 'Travma Merkezli Alyans Model Terapi', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
+        'yas-danismanligi' => ['title' => 'Yas Danışmanlığı ve Komplike Yası Yönetme', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
+        'somatik-perspektif' => ['title' => 'Travma Önlemede Somatik Deneyimleme Perspektifi', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
+        'cinsel-siddet' => ['title' => 'Cinsel Şiddet Beyanı Sonrası Yaklaşım ve Destek', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
+        'somurge-travma' => ['title' => 'Çatışma Bölgelerinde Sömürge Travmasının İyileştirilmesi', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
+        'adalet-yas' => ['title' => 'Travmatik Kayıplarda Adalet ve Yas', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
+        'cid' => ['title' => 'Kritik Olaylara Duyarsızlaştırma (CID)', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
+        'gokyuzunden-sifa' => ['title' => 'Gökyüzünden Şifa: Filistin’deki Çocuklar İçin Grup Etkinliği', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
+        'froma-walsh' => ['title' => 'Karmaşık ve Travmatik Kayıplarla Çalışmak', 'slot' => '2026-01-11-19:00', 'type' => 'clinical'],
+    ],
+    'discounts' => [
+        'early' => 'Erken Kayıt',
+        'student' => 'Öğrenci İndirimi',
+        'whr' => 'WHR Sertifika Katılımcısı',
+    ],
+    'pricing' => [
+        'format' => [
+            'yuz-yuze' => 6500,
+            'online' => 3500,
+        ],
+        'workshop_types' => [
+            'experiential' => 3500,
+            'clinical' => 5000,
+        ],
+        'discount_step' => 0.10,
+    ],
+];

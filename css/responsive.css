@@ -196,13 +196,8 @@
     }
 
     .speakers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 25px;
-    }
-
-
-    .container {
-        width: 300px;
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 18px;
     }
 
     .bg-1,

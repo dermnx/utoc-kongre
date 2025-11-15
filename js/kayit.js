@@ -15,6 +15,7 @@
         workshops: form.querySelector('[data-total-workshops]'),
         discount: form.querySelector('[data-total-discount]'),
         payable: form.querySelector('[data-total-payable]'),
+        selected: form.querySelector('[data-total-selected]'),
     };
 
     const PRICE_TABLE = {
@@ -50,6 +51,7 @@
         const { formatTotal, workshopTotal, discountAmount, payable } = details;
         if (summaryFields.format) summaryFields.format.textContent = formatCurrency(formatTotal);
         if (summaryFields.workshops) summaryFields.workshops.textContent = formatCurrency(workshopTotal);
+        if (summaryFields.selected) summaryFields.selected.textContent = formatCurrency(formatTotal + workshopTotal);
         if (summaryFields.discount) summaryFields.discount.textContent = formatCurrency(discountAmount);
         if (summaryFields.payable) summaryFields.payable.textContent = formatCurrency(payable);
         if (paymentInput) {
@@ -249,4 +251,27 @@
     });
 
     updateTotals();
+})();
+
+(function () {
+    const workshopBodies = document.querySelectorAll('.workshop-table tbody');
+    if (!workshopBodies.length) {
+        return;
+    }
+
+    workshopBodies.forEach((tbody) => {
+        let currentDate = '';
+        Array.from(tbody.querySelectorAll('tr')).forEach((row) => {
+            if (row.classList.contains('workshop-day-gap')) {
+                return;
+            }
+            const dateCell = row.querySelector('.workshop-date-cell');
+            if (dateCell) {
+                currentDate = dateCell.textContent.trim();
+            }
+            if (currentDate) {
+                row.dataset.date = currentDate;
+            }
+        });
+    });
 })();

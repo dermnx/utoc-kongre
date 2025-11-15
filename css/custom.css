@@ -45,12 +45,6 @@
     gap: 70px;
 }
 
-.hero-video-cta {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-}
-
 .hero-video-cta__btn {
     display: inline-flex;
     align-items: center;
@@ -73,6 +67,49 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
     transform: translateY(-1px);
     color: #ffffff;
+}
+
+.hero-video-cta {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-audio-toggle {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-audio-toggle__icon {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.hero-audio-toggle:hover,
+.hero-audio-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    outline: none;
+}
+
+.hero-audio-toggle:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+
+.mean-container .mean-bar .logo {
+    display: none;
 }
 
 .about-content__signature {
@@ -200,7 +237,8 @@
 
     .hero-video-cta {
         margin-top: 32px;
-        padding: 0 10px;
+        padding: 0 14px;
+        align-items: stretch;
     }
 
     .hero-video-cta__btn {
@@ -456,6 +494,7 @@
     }
 
     .mobile-menu-area .mobile-menu__brand img {
+        display: none;
         max-height: 32px;
         width: auto;
     }
@@ -528,7 +567,8 @@
     }
 
     .hero-countdown__timer {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 12px;
     }
 
     .hero-countdown__timer .cdown {
@@ -1897,3 +1937,15 @@
         letter-spacing: 0.18em;
     }
 }
+.mobile-menu-area {
+    background: #fff;
+}
+
+.mean-container .mean-nav,
+.mean-container .mean-nav ul {
+    background: #fff !important;
+    border: none;
+}
+    .hero-video-cta {
+        flex-direction: column;
+    }

@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/vendor/phpmailer/phpmailer/src/Exception.php';
+require_once __DIR__ . '/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require_once __DIR__ . '/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
+
 header('Content-Type: application/json; charset=utf-8');
 mb_internal_encoding('UTF-8');
 
@@ -12,52 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $pdo = null;
 
-$workshopCatalog = [
-    'denge-sembolum' => ['title' => 'Denge Sembolüm İntermodel Deneyim Atölyesi', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
-    'travma-bilgili-hareket' => ['title' => 'Travma Bilgili Hareket', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
-    'hukuki-mekanizmalar' => ['title' => 'Kadına Yönelik Şiddetle Mücadelede Hukuki Mücadele Mekanizmaları', 'slot' => '2026-01-09-11:45', 'type' => 'experiential'],
-    'somatik-deneyimleme' => ['title' => 'Somatik Deneyimleme Yaklaşımı ile Travma Önleme: Esnek Dayanıklılık', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
-    'hayat-agaci' => ['title' => 'Hayat Ağacı ve Güç Draması', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
-    'muzikle-deneyim' => ['title' => 'Bilinmeyenle Karşılaşmak - Müzikle Deneyim Atölyesi', 'slot' => '2026-01-10-11:45', 'type' => 'experiential'],
-    'bir-veda' => ['title' => 'Bir Veda Bir Merhaba: Dans / Hareket Deneyim Atölyesi', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
-    'yaradan-yarati' => ['title' => 'Yaradan Yaratıma Dönüşüm Yolculuğu', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
-    'ebru-deneyim' => ['title' => 'Ebru Teknesinde Taşımak, Kapsamak, Dönüştürmek', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
-    'muzikal-kopru' => ['title' => 'Müzikal Köprü: Müzikle Deneyim Atölyesi', 'slot' => '2026-01-11-11:45', 'type' => 'experiential'],
-    'tbdt' => ['title' => 'Travma Odaklı BDT: Klinik Müdahaleler', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
-    'afetlerde-bedensel' => ['title' => 'Afetlerde Beden Odaklı Uygulamalar', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
-    'kayıp-yas' => ['title' => 'Kayıp ve Yas Terapisi', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
-    'aciya-yakin' => ['title' => 'Acıya Yakın Olmak: Dolaylı Travma', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
-    'orgutsel-travma' => ['title' => 'Örgütsel Travmaların İzlenmesi ve Önlenmesi', 'slot' => '2026-01-09-14:00', 'type' => 'clinical'],
-    'belirti-azaltim' => ['title' => 'Belirti Azaltımının Ötesinde İyileşmeyi Kolaylaştırmak', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
-    'savas-magduru' => ['title' => 'Savaş Mağduru Toplumlarda Travmayla Klinik Çalışmalar', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
-    'alyans-model' => ['title' => 'Travma Merkezli Alyans Model Terapi', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
-    'yas-danismanligi' => ['title' => 'Yas Danışmanlığı ve Komplike Yası Yönetme', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
-    'somatik-perspektif' => ['title' => 'Travma Önlemede Somatik Deneyimleme Perspektifi', 'slot' => '2026-01-10-14:00', 'type' => 'clinical'],
-    'cinsel-siddet' => ['title' => 'Cinsel Şiddet Beyanı Sonrası Yaklaşım ve Destek', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
-    'somurge-travma' => ['title' => 'Çatışma Bölgelerinde Sömürge Travmasının İyileştirilmesi', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
-    'adalet-yas' => ['title' => 'Travmatik Kayıplarda Adalet ve Yas', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
-    'cid' => ['title' => 'Kritik Olaylara Duyarsızlaştırma (CID)', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
-    'gokyuzunden-sifa' => ['title' => 'Gökyüzünden Şifa: Filistin’deki Çocuklar İçin Grup Etkinliği', 'slot' => '2026-01-11-14:00', 'type' => 'clinical'],
-    'froma-walsh' => ['title' => 'Karmaşık ve Travmatik Kayıplarla Çalışmak', 'slot' => '2026-01-11-19:00', 'type' => 'clinical'],
-];
-
-$discountCatalog = [
-    'early' => 'Erken Kayıt',
-    'student' => 'Öğrenci İndirimi',
-    'whr' => 'WHR Sertifika Katılımcısı',
-];
-
-$priceConfig = [
-    'format' => [
-        'yuz-yuze' => 6500,
-        'online' => 3500,
-    ],
-    'workshop_types' => [
-        'experiential' => 3500,
-        'clinical' => 5000,
-    ],
-    'discount_step' => 0.10,
-];
+$constants = require __DIR__ . '/config/constants.php';
+$workshopCatalog = $constants['workshops'] ?? [];
+$discountCatalog = $constants['discounts'] ?? [];
+$priceConfig = $constants['pricing'] ?? [];
 
 function json_response(int $status, string $message, array $extra = []): void
 {
@@ -143,13 +108,94 @@ function handle_upload(string $field, string $directory, int $maxSize): ?string
     return str_replace(__DIR__ . DIRECTORY_SEPARATOR, '', $targetPath);
 }
 
+function load_database_config(): array
+{
+    $path = __DIR__ . '/config/database.php';
+    if (!file_exists($path)) {
+        throw new RuntimeException('Veritabanı yapılandırma dosyası bulunamadı.', 500);
+    }
+    $config = require $path;
+    if (!is_array($config)) {
+        throw new RuntimeException('Veritabanı yapılandırması geçersiz.', 500);
+    }
+    return $config;
+}
+
+function load_mail_config(): array
+{
+    $path = __DIR__ . '/config/mail.php';
+    if (!file_exists($path)) {
+        throw new RuntimeException('SMTP yapılandırma dosyası bulunamadı.', 500);
+    }
+
+    $config = require $path;
+    if (!is_array($config)) {
+        throw new RuntimeException('SMTP yapılandırma dosyası geçersiz.', 500);
+    }
+
+    return $config;
+}
+
+function send_notification_email(
+    array $config,
+    string $recipient,
+    string $subject,
+    string $body,
+    string $replyEmail,
+    string $replyName = ''
+): void {
+    $requiredKeys = ['host', 'port', 'username', 'password', 'from_email'];
+    foreach ($requiredKeys as $key) {
+        if (empty($config[$key])) {
+            throw new RuntimeException(sprintf('SMTP yapılandırması eksik: %s', $key), 500);
+        }
+    }
+
+    $mailer = new PHPMailer(true);
+    try {
+        $mailer->CharSet = 'UTF-8';
+        $mailer->isSMTP();
+        $mailer->Host = (string) $config['host'];
+        $mailer->Port = (int) ($config['port'] ?? 587);
+        $mailer->SMTPAuth = (bool) ($config['auth'] ?? true);
+        $mailer->Username = (string) $config['username'];
+        $mailer->Password = (string) $config['password'];
+
+        $encryption = strtolower((string) ($config['encryption'] ?? 'tls'));
+        if ($encryption === 'ssl') {
+            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        } elseif ($encryption === 'tls') {
+            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        } else {
+            $mailer->SMTPSecure = '';
+        }
+
+        $fromName = $config['from_name'] ?? 'Kongre Kayıt';
+        $mailer->setFrom((string) $config['from_email'], $fromName);
+        $mailer->addAddress($recipient);
+
+        if (!empty($replyEmail)) {
+            $mailer->addReplyTo($replyEmail, $replyName ?: $replyEmail);
+        } elseif (!empty($config['reply_to'])) {
+            $mailer->addReplyTo((string) $config['reply_to'], $fromName);
+        }
+
+        $mailer->Subject = $subject;
+        $mailer->Body = $body;
+        $mailer->AltBody = $body;
+
+        $mailer->send();
+    } catch (PHPMailerException $exception) {
+        throw new RuntimeException('E-posta gönderimi başarısız: ' . $exception->getMessage(), 500, $exception);
+    }
+}
+
 try {
     $fullName = normalize_string($_POST['full_name'] ?? '');
     $phone = normalize_string($_POST['phone'] ?? '');
     $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL) ? strtolower(trim($_POST['email'])) : '';
     $profession = normalize_string($_POST['profession'] ?? '');
     $format = $_POST['format'] ?? '';
-    $paymentReceipt = normalize_string($_POST['payment_receipt'] ?? '');
     $notes = normalize_string($_POST['notes'] ?? '');
     $kvkk = isset($_POST['kvkk']);
 
@@ -202,13 +248,7 @@ try {
     $priceDetails = calculate_payable_total($format, $selectedWorkshopCodes, $selectedDiscounts, $workshopCatalog, $priceConfig);
     $calculatedTotal = $priceDetails['payable'];
 
-    $dbConfig = [
-        'host' => 'localhost',
-        'name' => 'whr_kongre',
-        'user' => 'root',
-        'pass' => '',
-        'charset' => 'utf8mb4',
-    ];
+    $dbConfig = load_database_config();
 
     $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $dbConfig['host'], $dbConfig['name'], $dbConfig['charset']);
     $pdo = new PDO($dsn, $dbConfig['user'], $dbConfig['pass'], [
@@ -220,7 +260,13 @@ try {
 
     if ($selectedWorkshopCodes) {
         $placeholders = implode(',', array_fill(0, count($selectedWorkshopCodes), '?'));
-        $capacityStmt = $pdo->prepare("SELECT workshop_code, COUNT(*) AS total FROM kongre_registration_workshops WHERE workshop_code IN ($placeholders) FOR UPDATE");
+        $capacityStmt = $pdo->prepare(
+            "SELECT workshop_code, COUNT(*) AS total
+             FROM kongre_registration_workshops
+             WHERE workshop_code IN ($placeholders)
+             GROUP BY workshop_code
+             FOR UPDATE"
+        );
         $capacityStmt->execute($selectedWorkshopCodes);
         $capacity = [];
         foreach ($capacityStmt as $row) {
@@ -235,8 +281,8 @@ try {
     }
 
     $insertRegistration = $pdo->prepare('INSERT INTO kongre_registrations
-        (full_name, phone, email, profession, format, discounts, student_proof, whr_proof, payment_amount, payment_receipt, notes)
-        VALUES (:full_name, :phone, :email, :profession, :format, :discounts, :student_proof, :whr_proof, :payment_amount, :payment_receipt, :notes)');
+        (full_name, phone, email, profession, format, discounts, student_proof, whr_proof, payment_amount, payment_confirmed, notes)
+        VALUES (:full_name, :phone, :email, :profession, :format, :discounts, :student_proof, :whr_proof, :payment_amount, :payment_confirmed, :notes)');
 
     $insertRegistration->execute([
         ':full_name' => $fullName,
@@ -248,7 +294,7 @@ try {
         ':student_proof' => $studentProofPath,
         ':whr_proof' => $whrProofPath,
         ':payment_amount' => $calculatedTotal,
-        ':payment_receipt' => $paymentReceipt ?: null,
+        ':payment_confirmed' => 0,
         ':notes' => $notes ?: null,
     ]);
 
@@ -285,12 +331,11 @@ try {
         "Atölye Ücretleri: " . number_format($priceDetails['workshop_total'], 2, ',', '.') . " TL\n" .
         "İndirim Toplamı: " . number_format($priceDetails['discount_amount'], 2, ',', '.') . " TL\n" .
         "Ödenecek Tutar: " . number_format($calculatedTotal, 2, ',', '.') . " TL\n" .
-        "Dekont Referansı: " . ($paymentReceipt ?: 'Belirtilmedi') . "\n" .
         "Atölyeler:\n" . ($workshopLines ? implode("\n", $workshopLines) : '- Seçilmedi -') . "\n\n" .
         "Notlar:\n" . ($notes ?: '-');
 
-    $headers = sprintf("From: %s\r\nReply-To: %s", $email, $email);
-    @mail($recipient, $subject, $emailBody, $headers);
+    $mailConfig = load_mail_config();
+    send_notification_email($mailConfig, $recipient, $subject, $emailBody, $email, $fullName);
 
     json_response(200, 'Kaydınız başarıyla alınmıştır.', ['total_amount' => $calculatedTotal]);
 } catch (RuntimeException $exception) {
